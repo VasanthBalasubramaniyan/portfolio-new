@@ -1,0 +1,38 @@
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 639px) {
+    
+    /* Nav bar */
+    .nav-container {
+        justify-content: space-between;
+    }
+    .nav-container__desc {
+        justify-content: space-between;
+    }
+    .nav-container__head{
+        font-size: large;
+    }
+    /* Nav End */
+
+    /* Container */
+    .hire-button{
+        padding: 12px;        
+    }
+    /* Container End */
+
+    /* Header Section */
+    .header-section__container {
+        font-size: 10px;
+    }
+    .header-section__desc {
+        align-items: start;
+    }
+    .header-section__img {
+        display: none;
+    }
+}
+/* Mobile Responsive end */

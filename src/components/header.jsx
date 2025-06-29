@@ -1,17 +1,26 @@
 import home from "../assets/img/banner/home-right.png"
 export default function Header() {
+
     return (
         <>
-            <div className="container mt-10 flex gap-10 justify-evenly">
-                <div className="flex flex-col justify-center leading-[26px]">
-                    <p className="text-3xl font-medium">HELLO</p>
-                    <h1 className="text-3xl font-bold">I AM VASANTH B</h1>
-                    <h2 className="text-2xl font-medium">FRONT END DEVELOPER</h2>
-                    <button className="hire-button text-white p-2 border rounded-xl bg-[#7A51EB]">HIRE ME</button>
-                    <button className="get-button p-2 border border-none rounded-xl hover:bg-[#7A51EB] hover:text-white">GET CV</button>
+            <div className="header-section__container mt-10 flex justify-between gap-10">
+                <div className="header-section__desc flex flex-col justify-center gap-2 leading-[26px]">
+                    <p className="text-6xl font-medium">HELLO!!!</p>
+                    <hr />
+                    <div className="text-3xl font-bold sm:text-2xl">
+                        <h1>I AM VASANTH B</h1>
+                    </div>
+                    <div className="text-2xl font-medium sm:text-xl">
+                        <h2>FRONT END DEVELOPER</h2>
+                    </div>
+                    <div className="flex flex-col">
+                        <button className="hire-button text-white p-2 border rounded-xl bg-[#7A51EB] hover:bg-white hover:text-black hover:border-[#7A51EB]">HIRE ME</button>
+                        <button className="get-button p-2 border border-none rounded-xl hover:bg-[#7A51EB] hover:text-white">GET CV</button>
+                    </div>
+                    
                 </div>
-                <div>
-                    <img className="w-100" src={home} alt="Home right" />
+                <div className="header-section__img">
+                    <img className="w-130"  src={home} alt="Home right" />
                 </div>
             </div>
         </>

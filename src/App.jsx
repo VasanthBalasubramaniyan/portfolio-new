@@ -1,14 +1,17 @@
 import './App.css'
 import Navbar from './components/navbar'
 import Header from './components/header'
-function App() {
+export default function App() {
 
   return (
     <>
       <Navbar></Navbar>
-      <Header></Header>
+      <div className='container'>
+        <Header></Header>
+      </div>
+      
     </>
   )
 }
 
-export default App
+
