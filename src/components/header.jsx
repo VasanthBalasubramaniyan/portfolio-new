@@ -1,6 +1,15 @@
 import home from "../assets/img/banner/home-right.png"
 export default function Header() {
 
+    const handleDownload = () => {
+        const now = new Date();
+        // Format: YYYY-MM-DD_HH-MM-SS
+        const timestamp = now.toISOString().replace(/T/, '_').replace(/:/g, '-').split('.')[0];
+        const link = document.createElement("a");
+        link.href = "/public/Vasanth B.pdf"
+        link.download = `Vasanth B ${timestamp}.pdf`;
+        link.click();
+    }
     return (
         <>
             <div className="header-section__container mt-10 flex justify-between gap-10">
@@ -15,7 +24,7 @@ export default function Header() {
                     </div>
                     <div className="flex flex-col">
                         <button className="hire-button text-white p-2 border rounded-xl bg-[#7A51EB] hover:bg-white hover:text-black hover:border-[#7A51EB]">HIRE ME</button>
-                        <button className="get-button p-2 border border-none rounded-xl hover:bg-[#7A51EB] hover:text-white">GET CV</button>
+                        <button onClick={handleDownload} className="get-button p-2 border border-none rounded-xl hover:bg-[#7A51EB] hover:text-white">GET CV</button>
                     </div>
                     
                 </div>
