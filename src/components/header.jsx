@@ -3,8 +3,13 @@ export default function Header() {
 
     const handleDownload = () => {
         const now = new Date();
-        // Format: YYYY-MM-DD_HH-MM-SS
-        const timestamp = now.toISOString().replace(/T/, '_').replace(/:/g, '-').split('.')[0];
+        // Format date to DD-MM-YYYY
+        const day = String(now.getDate()).padStart(2, '0');
+        const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+        const year = now.getFullYear();
+
+        const timestamp = `${day}-${month}-${year}`
+
         const link = document.createElement("a");
         link.href = "/public/Vasanth B.pdf"
         link.download = `Vasanth B ${timestamp}.pdf`;
