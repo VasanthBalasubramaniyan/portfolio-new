@@ -16,7 +16,7 @@ export default function Header() {
         const timestamp = `${day}-${month}-${year}_${hours}-${minutes}-${seconds}`;
 
         const link = document.createElement("a");
-        link.href = "/Vasanth B.pdf"
+        link.href = "../assets/docs/Vasanth B.pdf"
         link.download = `Vasanth B ${timestamp}.pdf`;
         link.click();
     }
