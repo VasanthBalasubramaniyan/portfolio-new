@@ -1,6 +1,9 @@
 import './App.css'
 import Navbar from './components/navbar'
 import Header from './components/header'
+import About from './components/about'
+import Skills from './components/skills'
+import Projects from './components/projects'
 export default function App() {
 
   return (
@@ -8,6 +11,9 @@ export default function App() {
       <Navbar></Navbar>
       <div className='container'>
         <Header></Header>
+        <About></About>
+        <Skills></Skills>
+        <Projects></Projects>
       </div>
       
     </>

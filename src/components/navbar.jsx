@@ -2,7 +2,7 @@ import '../App.css'
 export default function Navbar() {
   return (
     <>
-      <div className="nav-container mt-4 shadow-lg">
+      <div className="nav-container mt-4 shadow-lg sticky top-0 z-200 bg-white">
         <div className="nav-container__desc p-6 flex sm:justify-between">
             <div>
             <h1 className="nav-container__head text-2xl font-bold hover:text-[#7A51EB] hover:cursor-pointer">VASANTH</h1>
@@ -24,9 +24,9 @@ export default function Navbar() {
             </svg>
 
             <ul className="hidden md:flex justify-between items-center gap-6 text-lg font-medium">
-                <li className="hover:text-[#7A51EB] hover:cursor-pointer">HOME</li>
-                <li className="hover:text-[#7A51EB] hover:cursor-pointer">ABOUT</li>
-                <li className="hover:text-[#7A51EB] hover:cursor-pointer">CONTACT</li>
+                <li  className="hover:text-[#7A51EB] hover:cursor-pointer"><a href="#home">HOME</a></li>
+                <li className="hover:text-[#7A51EB] hover:cursor-pointer"><a href="#about">ABOUT</a></li>
+                <li className="hover:text-[#7A51EB] hover:cursor-pointer"><a href="#contact">CONTACT</a></li>
             </ul>
             </div>
         </div>
