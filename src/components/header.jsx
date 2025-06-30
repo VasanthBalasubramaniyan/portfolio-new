@@ -1,6 +1,7 @@
 // import home from "../assets/img/banner/home-right.png"
 import Me from '../assets/img/Me.JPG'
-export default function Header() {
+
+export default function Header({resumeLink}) {
 
     const handleDownload = () => {
         const now = new Date();
@@ -17,7 +18,7 @@ export default function Header() {
         const timestamp = `${day}-${month}-${year}_${hours}-${minutes}-${seconds}`;
 
         const link = document.createElement("a");
-        link.href = "../assets/docs/Vasanth B.pdf"
+        link.href = {resumeLink}
         link.download = `Vasanth B ${timestamp}.pdf`;
         link.click();
     }
@@ -34,8 +35,8 @@ export default function Header() {
                         <h2 className="header-section__description">FRONT END DEVELOPER</h2>
                     </div>
                     <div className="flex flex-col gap-4">
-                        <button className="hire-button text-white text-3xl p-2 border rounded-[10px] bg-[#7A51EB] hover:bg-white hover:text-black hover:border-[#7A51EB]">HIRE ME</button>
-                        <button onClick={handleDownload} className="get-button text-3xl p-2 border border-[#7A51EB] rounded-[10px] hover:bg-[#7A51EB] hover:text-white">GET CV</button>
+                        <button className="hire-button text-white text-3xl p-2 border rounded-[10px] bg-[#7A51EB] hover:bg-white hover:text-black hover:border-[#7A51EB] hover:cursor-pointer">HIRE ME</button>
+                        <button onClick={handleDownload} className="get-button text-3xl p-2 border border-[#7A51EB] rounded-[10px] hover:bg-[#7A51EB] hover:text-white hover:cursor-pointer">GET CV</button>
                     </div>
                     
                 </div>
