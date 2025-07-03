@@ -14,44 +14,94 @@ export default function Projects() {
         </div>
 
         <div className="project-section__cards__container flex flex-wrap justify-center gap-8 mt-10">
-          <div className="project-section__card shadow-2xl p-6 w-[300px]">
-            <div className="img-container flex justify-center mb-5">
-              <img className="w-20 p-2" src={Trip} alt="Trip Advisor Img" />
-            </div>
-            <h1 className="text-2xl text-center font-bold">
-              <a href="https://vasanthbalasubramaniyan.github.io/greenden-tailwind/"target="_blank">TRIP ADVISOR CLONE</a>
-            </h1>
-            <p className="mt-5 text-justify text-sm">
-              A travel review and booking platform inspired by TripAdvisor.
+          
+
+          <div className="w-[300px] h-[400px] perspective">
+            <div className="relative w-full h-full transition-transform duration-500 transform-style preserve-3d hover:rotate-y-180">
+              {/* Front Side */}
+              <div className="absolute w-full h-full backface-hidden bg-white shadow-2xl p-6 rounded-xl">
+                <div className="img-container flex items-center justify-center mb-5">
+                  <img className="w-200" src={Trip} alt="Greenden Img" />
+                </div>
+                <h1 className="text-2xl text-center font-bold">
+                  
+                    TRIP ADVISOR CLONE
+                  
+                </h1>
+              </div>
+
+              {/* Back Side */}
+              <div className="absolute w-full h-full backface-hidden rotate-y-180 shadow-2xl p-6 rounded-xl flex flex-col items-center justify-center">
+                <p className="mt-2 text-justify text-lg">
+                  A travel review and booking platform inspired by TripAdvisor.
               Built with modern web technologies, it features interactive maps,
               location-based listings, user reviews, and a responsive UI to
               explore destinations, hotels, and restaurants seamlessly.
-            </p>
-          </div>
-
-          <div className="project-section__card shadow-2xl p-6 w-[300px]">
-            <div className="img-container flex justify-center mb-5">
-              <img className="w-20 p-2" src={Green} alt="Greenden Img" />
+                </p>
+                <p className="text-center text-sm">
+                  <a
+                    href="https://vasanthbalasubramaniyan.github.io/trip-advisor/"
+                    target="_blank"
+                    className="text-lg font-bold underline"
+                    rel="noopener noreferrer"
+                  >
+                    Visit Site
+                  </a>
+                </p>
+              </div>
             </div>
-            <h1 className="text-2xl text-center font-bold">
-                <a href="https://vasanthbalasubramaniyan.github.io/trip-advisor/"target="_blank">Greenden</a></h1>
-            <p className="mt-5 text-justify text-sm">
-              A responsive and visually appealing plant store website built with
-              Tailwind CSS and JavaScript. It features a modern layout,
-              interactive navigation, and mobile-friendly design, showcasing
-              products and enhancing user experience.
-            </p>
           </div>
 
-          <div className="project-section__card shadow-2xl p-6 w-[300px]">
-            <div className="img-container flex justify-center mb-5">
-              <svg
+          <div className="w-[300px] h-[400px] perspective">
+            <div className="relative w-full h-full transition-transform duration-500 transform-style preserve-3d hover:rotate-y-180">
+              {/* Front Side */}
+              <div className="absolute w-full h-full backface-hidden bg-white shadow-2xl p-6 rounded-xl">
+                <div className="img-container flex items-center justify-center mb-5">
+                  <img className="w-200" src={Green} alt="Greenden Img" />
+                </div>
+                <h1 className="text-2xl text-center font-bold">
+                  <a
+                    href="https://vasanthbalasubramaniyan.github.io/trip-advisor/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Greenden
+                  </a>
+                </h1>
+              </div>
+
+              {/* Back Side */}
+              <div className="absolute w-full h-full backface-hidden rotate-y-180 shadow-2xl p-6 rounded-xl flex flex-col items-center justify-center">
+                <p className="mt-2 text-justify text-lg">
+                  A responsive and visually appealing plant store website built
+                  with Tailwind CSS and JavaScript. It features a modern layout,
+                  interactive navigation, and mobile-friendly design.
+                </p>
+                <p className="text-center text-sm">
+                  <a
+                    href="https://vasanthbalasubramaniyan.github.io/trip-advisor/"
+                    target="_blank"
+                    className="text-lg font-bold underline"
+                    rel="noopener noreferrer"
+                  >
+                    Visit Site
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="w-[300px] h-[400px] perspective">
+            <div className="relative w-full h-full transition-transform duration-500 transform-style preserve-3d hover:rotate-y-180">
+              {/* Front Side */}
+              <div className="absolute w-full h-full backface-hidden bg-white shadow-2xl p-6 rounded-xl">
+                <div className="img-container flex items-center justify-center mb-5">
+                  <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                className="w-20 p-2"
                 class="size-10"
               >
                 <path
@@ -60,39 +110,86 @@ export default function Projects() {
                   d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
                 />
               </svg>
-            </div>
-            <h1 className="text-2xl text-center font-bold">
-              <a href="https://vasanthbalasubramaniyan.github.io/Nostra/"target="_blank">Nostra e-Commerce</a>
-            </h1>
-            <p className="mt-5 text-justify text-sm">
-              A sleek and responsive eCommerce UI built with Tailwind CSS and
+                </div>
+                <h1 className="text-2xl text-center font-bold">
+                  <a
+                    href="https://vasanthbalasubramaniyan.github.io/trip-advisor/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Nostra e-Commerce
+                  </a>
+                </h1>
+              </div>
+
+              {/* Back Side */}
+              <div className="absolute w-full h-full backface-hidden rotate-y-180 shadow-2xl p-6 rounded-xl flex flex-col items-center justify-center">
+                <p className="mt-2 text-justify text-lg">
+                  A sleek and responsive eCommerce UI built with Tailwind CSS and
               JavaScript, featuring interactive product listings, a modern
               layout, and smooth navigation optimized for all devices.
-            </p>
+                </p>
+                <p className="text-center text-sm">
+                  <a
+                    href="https://vasanthbalasubramaniyan.github.io/Nostra/"
+                    target="_blank"
+                    className="text-lg font-bold underline"
+                    rel="noopener noreferrer"
+                  >
+                    Visit Site
+                  </a>
+                </p>
+              </div>
+            </div>
           </div>
 
-          <div className="project-section__card shadow-2xl p-6 w-[300px]">
-            <div className="img-container flex justify-center mb-5 mt-5">
-              <img className="w-20 p-2" src={Udemy} alt="Trip Advisor Img" />
-            </div>
-            <h1 className="text-2xl text-center font-bold">
-                <a href="https://udemy-react-vasanth-bs-projects.vercel.app/"target="_blank">Udemy CLONE</a></h1>
-            <p className="mt-5 text-justify text-sm">
-              A responsive online course platform UI built with ReactJS and
+          <div className="w-[300px] h-[400px] perspective">
+            <div className="relative w-full h-full transition-transform duration-500 transform-style preserve-3d hover:rotate-y-180">
+              {/* Front Side */}
+              <div className="absolute w-full h-full backface-hidden bg-white shadow-2xl p-6 rounded-xl">
+                <div className="img-container flex items-center justify-center mb-5">
+                  <img className="p-2" src={Udemy} alt="Greenden Img" />
+                </div>
+                <h1 className="text-2xl text-center font-bold">
+        
+                    Udemy CLONE
+                  
+                </h1>
+              </div>
+
+              {/* Back Side */}
+              <div className="absolute w-full h-full backface-hidden rotate-y-180 shadow-2xl p-6 rounded-xl flex flex-col items-center justify-center">
+                <p className="mt-2 text-justify text-lg">
+                  A responsive online course platform UI built with ReactJS and
               Tailwind CSS, featuring dynamic components, modern design, and a
               clean layout optimized for all screen sizes.
-            </p>
+                </p>
+                <p className="text-center text-sm">
+                  <a
+                    href="https://udemy-react-vasanth-bs-projects.vercel.app/"
+                    target="_blank"
+                    className="text-lg font-bold underline"
+                    rel="noopener noreferrer"
+                  >
+                    Visit Site
+                  </a>
+                </p>
+              </div>
+            </div>
           </div>
 
-          <div className="project-section__card shadow-2xl p-6 w-[300px]">
-            <div className="img-container flex justify-center mb-5">
-              <svg
+          <div className="w-[300px] h-[400px] perspective">
+            <div className="relative w-full h-full transition-transform duration-500 transform-style preserve-3d hover:rotate-y-180">
+              {/* Front Side */}
+              <div className="absolute w-full h-full backface-hidden bg-white shadow-2xl p-6 rounded-xl">
+                <div className="img-container flex items-center justify-center mb-5">
+                  <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="w-20 p-2"
+                className=" p-2"
               >
                 <path
                   strokeLinecap="round"
@@ -102,29 +199,70 @@ export default function Projects() {
            9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
                 />
               </svg>
-            </div>
-            <h1 className="text-2xl text-center font-bold">
-                <a href="https://github.com/VasanthBalasubramaniyan/portfolio-new"target="_blank">Portfolio</a></h1>
-            <p className="mt-5 text-justify text-sm">
-              A responsive personal portfolio built with ReactJS and Tailwind
+                </div>
+                <h1 className="text-2xl text-center font-bold">
+                  
+                    PORTFOLIO
+                  
+                </h1>
+              </div>
+
+              {/* Back Side */}
+              <div className="absolute w-full h-full backface-hidden rotate-y-180 shadow-2xl p-6 rounded-xl flex flex-col items-center justify-center">
+                <p className="mt-2 text-justify text-lg">
+                  A responsive personal portfolio built with ReactJS and Tailwind
               CSS, showcasing projects and skills using interactive UI and donut
               charts for clean visual representation.
-            </p>
+                </p>
+                <p className="text-center text-sm">
+                  <a
+                    href="https://github.com/VasanthBalasubramaniyan/portfolio-new"
+                    target="_blank"
+                    className="text-lg font-bold underline"
+                    rel="noopener noreferrer"
+                  >
+                    Visit Site
+                  </a>
+                </p>
+              </div>
+            </div>
           </div>
 
-          <div className="project-section__card shadow-2xl p-6 w-[300px]">
-            <div className="img-container flex justify-center mb-5">
-              <img className="w-20 p-2" src={Python} alt="Trip Advisor Img" />
-            </div>
-            <h1 className="text-2xl text-center font-bold">
-                <a href="https://github.com/VasanthBalasubramaniyan/ATM-Python"target="_blank">ATM - Python</a></h1>
-            <p className="mt-5 text-justify text-sm">
-              A simple ATM system with PIN verification, supporting withdrawal,
+          <div className="w-[300px] h-[400px] perspective">
+            <div className="relative w-full h-full transition-transform duration-500 transform-style preserve-3d hover:rotate-y-180">
+              {/* Front Side */}
+              <div className="absolute w-full h-full backface-hidden bg-white shadow-2xl p-6 rounded-xl">
+                <div className="img-container flex items-center justify-center mb-5">
+                  <img className="p-2" src={Python} alt="Greenden Img" />
+                </div>
+                <h1 className="text-2xl text-center font-bold">
+                  
+                    ATM - PYTHON
+                </h1>
+              </div>
+
+              {/* Back Side */}
+              <div className="absolute w-full h-full backface-hidden rotate-y-180 shadow-2xl p-6 rounded-xl flex flex-col items-center justify-center">
+                <p className="mt-2 text-justify text-lg">
+                  A simple ATM system with PIN verification, supporting withdrawal,
               deposit (up to ₹10,000), balance inquiry, and fast cash. Includes
               error handling, balance checks, and a restart option for repeated
               use.
-            </p>
+                </p>
+                <p className="text-center text-sm">
+                  <a
+                    href="https://github.com/VasanthBalasubramaniyan/ATM-Python"
+                    target="_blank"
+                    className="text-lg font-bold underline"
+                    rel="noopener noreferrer"
+                  >
+                    Visit Site
+                  </a>
+                </p>
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
     </>

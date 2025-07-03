@@ -19,6 +19,24 @@ body {
 }
 /* Skill Chart Animation End */
 
+/* Projects Animation */
+.perspective {
+  perspective: 1000px;
+}
+
+.transform-style {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+
 /* Mobile Responsive */
 @media screen and (max-width: 639px) {
     

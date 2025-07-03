@@ -1,8 +1,10 @@
 // import home from "../assets/img/banner/home-right.png"
 import Me from '../assets/img/Me.JPG'
+// import { useEffect, useRef, useState } from 'react';
+// import html2pdf from 'html2pdf.js';
 
 export default function Header({resumeLink}) {
-
+    
     const handleDownload = () => {
         const now = new Date();
         // Format date to DD-MM-YYYY
@@ -15,12 +17,8 @@ export default function Header({resumeLink}) {
         const minutes = String(now.getMinutes()).padStart(2, '0');
         const seconds = String(now.getSeconds()).padStart(2, '0');
 
-        const timestamp = `${day}-${month}-${year}_${hours}-${minutes}-${seconds}`;
+        // const timestamp = `${day}-${month}-${year}_${hours}-${minutes}-${seconds}`;
 
-        const link = document.createElement("a");
-        link.href = {resumeLink}
-        link.download = `Vasanth B ${timestamp}.pdf`;
-        link.click();
     }
     return (
         <>
