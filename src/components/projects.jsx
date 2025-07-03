@@ -56,8 +56,8 @@ export default function Projects() {
             <div className="relative w-full h-full transition-transform duration-500 transform-style preserve-3d hover:rotate-y-180">
               {/* Front Side */}
               <div className="absolute w-full h-full backface-hidden bg-white shadow-2xl p-6 rounded-xl">
-                <div className="img-container flex items-center justify-center mb-5">
-                  <img className="w-200" src={Green} alt="Greenden Img" />
+                <div className="img-container  mb-5">
+                  <img className="w-200 h-60" src={Green} alt="Greenden Img" />
                 </div>
                 <h1 className="text-2xl text-center font-bold">
                   <a
@@ -102,7 +102,6 @@ export default function Projects() {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="size-10"
               >
                 <path
                   stroke-linecap="round"
@@ -147,8 +146,8 @@ export default function Projects() {
             <div className="relative w-full h-full transition-transform duration-500 transform-style preserve-3d hover:rotate-y-180">
               {/* Front Side */}
               <div className="absolute w-full h-full backface-hidden bg-white shadow-2xl p-6 rounded-xl">
-                <div className="img-container flex items-center justify-center mb-5">
-                  <img className="p-2" src={Udemy} alt="Greenden Img" />
+                <div className="img-container mt-23 mb-5">
+                  <img className="w-[100%] h-40" src={Udemy} alt="Greenden Img" />
                 </div>
                 <h1 className="text-2xl text-center font-bold">
         
