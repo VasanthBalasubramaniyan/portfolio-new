@@ -5,6 +5,7 @@ import Js from "../assets/icons/js.png";
 import React from "../assets/icons/react.png";
 import Git from "../assets/icons/github.png";
 import Python from "../assets/icons/python.png";
+import Sql from "../assets/icons/sql.png";
 import Excel from "../assets/icons/excel.png";
 
 export default function Skills() {
@@ -40,6 +41,10 @@ export default function Skills() {
         <div className="skills-section_card">
           <img src={Git} />
           <p className="text-4xl font-medium">GITHUB</p>
+        </div>
+        <div className="skills-section_card">
+          <img src={Sql} />
+          <p className="text-4xl font-medium">SQL</p>~
         </div>
         <div className="skills-section_card">
           <img src={Python} />
