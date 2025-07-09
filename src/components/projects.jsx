@@ -147,7 +147,7 @@ export default function Projects() {
               {/* Front Side */}
               <div className="absolute w-full h-full backface-hidden bg-white shadow-2xl p-6 rounded-xl">
                 <div className="img-container mt-23 mb-5">
-                  <img className="w-[100%] h-40" src={Udemy} alt="Greenden Img" />
+                  <img className="w-[100%] h-35 flex items-center" src={Udemy} alt="Greenden Img" />
                 </div>
                 <h1 className="text-2xl text-center font-bold">
         

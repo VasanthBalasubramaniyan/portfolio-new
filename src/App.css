@@ -151,5 +151,17 @@ body {
     font-size: xx-large;
     text-align: left;
   }
+
+  /* Project section End */
+
+  /* Footer Section */
+
+  .footer-name > p {
+    display: none;
+  }
+  .footer-container_desc {
+    display: flex;
+  }
+  /* Footer End */
 }
 /* Mobile Responsive end */

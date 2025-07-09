@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <>
       <div className="footer-container mt-5 bg-white sticky bottom-0">
-        <div className="md:flex justify-between p-2">
+        <div className="footer-container_desc md:flex justify-between p-2">
           <div className="socialMedia">
             <ul className="flex gap-6">
               <li style={{ color: "#0073B1" }}>
@@ -17,7 +17,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div className="flex items-center">
+          <div className="footer-name flex items-center">
             <p>&copy; Vasanth B</p>
           </div>
           <div className="flex items-center">
