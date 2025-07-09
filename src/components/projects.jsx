@@ -13,7 +13,7 @@ export default function Projects() {
           </h1>
         </div>
 
-        <div className="project-section__cards__container flex flex-wrap justify-center gap-8 mt-10">
+        <div className="project-section__cards__container flex flex-wrap justify-center gap-15 mt-10">
           
 
           <div className="w-[300px] h-[400px] perspective">

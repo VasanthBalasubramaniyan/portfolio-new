@@ -1,13 +1,11 @@
-import DonutChart from "./donut";
-
-const chartData = [
-  { label: "ReactJS", value: 80 },
-  { label: "TailwindCSS", value: 85 },
-  { label: "GitHub", value: 95 },
-  { label: "Python", value: 80 },
-  { label: "RestAPI", value: 75 },
-  { label: "Deployment", value: 90 },
-];
+import Html from "../assets/icons/html.png";
+import Css from "../assets/icons/css.png";
+import TailwindCss from "../assets/icons/tailwindcss.png";
+import Js from "../assets/icons/js.png";
+import React from "../assets/icons/react.png";
+import Git from "../assets/icons/github.png";
+import Python from "../assets/icons/python.png";
+import Excel from "../assets/icons/excel.png";
 
 export default function Skills() {
   return (
@@ -18,10 +16,39 @@ export default function Skills() {
         </h1>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {chartData.map((item, index) => (
-          <DonutChart key={index} label={item.label} value={item.value} />
-        ))}
+      <div className="flex flex-wrap gap-10 justify-evenly ">
+        <div className="skills-section_card">
+          <img src={Html} />
+          <p className="text-4xl font-medium">HTML</p>
+        </div>
+        <div className="skills-section_card">
+          <img src={Css} />
+          <p className="text-4xl font-medium">CSS</p>
+        </div>
+        <div className="skills-section_card">
+          <img src={TailwindCss} />
+          <p className="text-4xl font-medium">TAILWINDCSS</p>
+        </div>
+        <div className="skills-section_card">
+          <img src={Js} />
+          <p className="text-4xl font-medium">JAVASCRIPT</p>
+        </div>
+        <div className="skills-section_card">
+          <img src={React} />
+          <p className="text-4xl font-medium">REACT Js</p>
+        </div>
+        <div className="skills-section_card">
+          <img src={Git} />
+          <p className="text-4xl font-medium">GITHUB</p>
+        </div>
+        <div className="skills-section_card">
+          <img src={Python} />
+          <p className="text-4xl font-medium">PYTHON</p>
+        </div>
+        <div className="skills-section_card">
+          <img src={Excel} />
+          <p className="text-4xl font-medium">EXCEL</p>
+        </div>
       </div>
     </section>
   );
