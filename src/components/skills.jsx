@@ -44,7 +44,7 @@ export default function Skills() {
         </div>
         <div className="skills-section_card">
           <img src={Sql} />
-          <p className="text-4xl font-medium">SQL</p>~
+          <p className="text-4xl font-medium">SQL</p>
         </div>
         <div className="skills-section_card">
           <img src={Python} />
