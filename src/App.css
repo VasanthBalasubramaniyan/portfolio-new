@@ -304,14 +304,56 @@ body {
   background: linear-gradient(45deg, #6B46C1, #8B5CF6);
 }
 
-/* Loading Spinner */
+/* Enhanced Loading Animations */
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
 
+@keyframes rainbow-spin {
+  0% { transform: rotate(0deg); filter: hue-rotate(0deg); }
+  100% { transform: rotate(360deg); filter: hue-rotate(360deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    transform: scale(1); 
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+  50% { 
+    transform: scale(1.1); 
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
+  }
+}
+
+@keyframes wave {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer-loading {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
 .loading-spinner {
   animation: spin 1s linear infinite;
+}
+
+.rainbow-spinner {
+  animation: rainbow-spin 2s linear infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.wave-animation {
+  animation: wave 1.5s ease-in-out infinite;
+}
+
+.shimmer-loading {
+  animation: shimmer-loading 2s ease-in-out infinite;
 }
 
 /* Enhanced Focus States */
@@ -443,6 +485,20 @@ button, a, input, textarea, select {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+/* Favicon and logo display fixes */
+link[rel="icon"] {
+  width: 32px !important;
+  height: 32px !important;
+}
+
+/* Ensure high resolution display */
+svg {
+  shape-rendering: geometricPrecision;
+  text-rendering: geometricPrecision;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 
