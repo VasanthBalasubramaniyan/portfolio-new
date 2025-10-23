@@ -46,6 +46,9 @@ export default function Header() {
             </h1>
           </div>
           <h2 className="text-5xl font-medium">DATA ENGINEER and FRONT END DEVELOPER</h2>
+          <p className="text-2xl font-medium text-gray-600 mt-2">
+            <span className="text-[#7A51EB] font-bold">Vibe Coder</span> 
+          </p>
           <div className="flex flex-col gap-4">
             <button className="hire-button text-white text-3xl p-2 border rounded-[10px] bg-[#7A51EB] hover:bg-white hover:text-black hover:border-[#7A51EB] hover:cursor-pointer btn-animated hover-lift">
               <a href="mailto:vasanthbalsubramaniyan08@gmail.com">HIRE ME </a>
