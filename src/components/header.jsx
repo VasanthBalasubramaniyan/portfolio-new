@@ -1,9 +1,12 @@
 import html2pdf from 'html2pdf.js';
 import Me from '../assets/img/Me.JPG';
 import { useRef } from 'react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export default function Header() {
   const resumeRef = useRef();
+  const [textRef, isTextVisible] = useScrollAnimation(0.2);
+  const [imageRef, isImageVisible] = useScrollAnimation(0.3);
 
   const handleDownload = () => {
     const now = new Date();
@@ -23,9 +26,12 @@ export default function Header() {
   return (
     <>
       <div className="header-section__container mt-10 flex justify-between gap-10">
-        <div className="header-section__desc flex flex-col justify-center gap-4 leading-[26px]">
-          <p className="text-6xl font-medium">HELLO!!!</p>
-          <hr />
+        <div 
+          ref={textRef}
+          className={`header-section__desc flex flex-col justify-center gap-4 leading-[26px] fade-in-left ${isTextVisible ? 'visible' : ''}`}
+        >
+          <p className="text-6xl font-medium gradient-text">HELLO!!!</p>
+          <hr className="border-2 border-[#7A51EB] w-20" />
           <div className="text-5xl font-bold flex">
             <h1>
               I'M{' '}
@@ -41,7 +47,7 @@ export default function Header() {
           </div>
           <h2 className="text-5xl font-medium">DATA ENGINEER and FRONT END DEVELOPER</h2>
           <div className="flex flex-col gap-4">
-            <button className="hire-button text-white text-3xl p-2 border rounded-[10px] bg-[#7A51EB] hover:bg-white hover:text-black hover:border-[#7A51EB] hover:cursor-pointer">
+            <button className="hire-button text-white text-3xl p-2 border rounded-[10px] bg-[#7A51EB] hover:bg-white hover:text-black hover:border-[#7A51EB] hover:cursor-pointer btn-animated hover-lift">
               <a href="mailto:vasanthbalsubramaniyan08@gmail.com">HIRE ME </a>
             </button>
             {/* <button
@@ -52,8 +58,15 @@ export default function Header() {
             </button> */}
           </div>
         </div>
-        <div className="header-section__img">
-          <img className="w-130 rounded-full shadow-2xl sm:w-100" src={Me} alt="Profile" />
+        <div 
+          ref={imageRef}
+          className={`header-section__img fade-in-right ${isImageVisible ? 'visible' : ''}`}
+        >
+          <img 
+            className="w-130 rounded-full shadow-2xl sm:w-100 float-animation hover-scale" 
+            src={Me} 
+            alt="Profile" 
+          />
         </div>
       </div>
     </>
