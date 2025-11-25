@@ -34,7 +34,7 @@ const DonutChart = ({ label, value }) => {
             direction: "counterclockwise",
             rotation: 90,
             marker: {
-              colors: ["#7A51EB", "#f2f2f2"],
+              colors: ["#1F3A8A", "#E2E8F0"],
             },
           },
         ]}

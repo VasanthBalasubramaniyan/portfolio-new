@@ -18,19 +18,19 @@ export default function Header() {
 
   return (
     <>
-      <div className="header-section__container mt-10 flex justify-between gap-10">
+      <div id="home" className="header-section__container mt-10 flex justify-between gap-10">
         <div 
           ref={textRef}
           className={`header-section__desc flex flex-col justify-center gap-4 leading-[26px] fade-in-left ${isTextVisible ? 'visible' : ''}`}
         >
           <p className="text-6xl font-medium gradient-text">HELLO!!!</p>
-          <hr className="border-2 border-[#7A51EB] w-20" />
+          <hr className="border-2 border-[#1F3A8A] w-20" />
           <div className="text-5xl font-bold flex">
             <h1>
               I'M{' '}
               <span
                 style={{
-                  background: 'linear-gradient(45deg, #7A51EB, #FF9A8B)',
+                  background: 'linear-gradient(45deg, #1D4ED8, #0EA5E9)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                 }}>
@@ -40,14 +40,20 @@ export default function Header() {
           </div>
           <h2 className="text-5xl font-medium">DATA ENGINEER and FRONT END DEVELOPER</h2>
           <p className="text-2xl font-medium text-gray-600 mt-2">
-            <span className="text-[#7A51EB] font-bold">Vibe Coder</span> 
+            <span className="text-[#1F3A8A] font-bold">Vibe Coder</span> 
           </p>
           <div className="flex flex-col gap-4">
             <button
               onClick={handleDownload}
-              className="hire-button text-white text-3xl p-2 border rounded-[10px] bg-[#7A51EB] hover:bg-white hover:text-black hover:border-[#7A51EB] hover:cursor-pointer btn-animated hover-lift"
+              className="hire-button text-white text-3xl p-2 border rounded-[10px] bg-[#1F3A8A] hover:bg-white hover:text-[#1F3A8A] hover:border-[#1F3A8A] hover:cursor-pointer btn-animated hover-lift"
             >
               HIRE ME
+            </button>
+            <button
+              onClick={() => (window.location.href = 'tel:+918248577533')}
+              className="contact-button text-3xl p-2 border rounded-[10px] hover:border-[#1F3A8A] hover:cursor-pointer btn-animated hover-lift"
+            >
+              CONTACT
             </button>
           </div>
         </div>

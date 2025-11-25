@@ -90,7 +90,7 @@ export default function Projects() {
                             viewBox="0 0 24 24"
                             strokeWidth="1.5"
                             stroke="currentColor"
-                            className="w-20 h-20 text-[#7A51EB]"
+                            className="w-20 h-20 text-[#1F3A8A]"
                           >
                             <path
                               strokeLinecap="round"
@@ -105,7 +105,7 @@ export default function Projects() {
                             viewBox="0 0 24 24"
                             strokeWidth="1.5"
                             stroke="currentColor"
-                            className="w-20 h-20 text-[#7A51EB]"
+                            className="w-20 h-20 text-[#1F3A8A]"
                           >
                             <path
                               strokeLinecap="round"
@@ -123,7 +123,7 @@ export default function Projects() {
                 </div>
 
                 {/* Back Side */}
-                <div className="absolute w-full h-full backface-hidden rotate-y-180 shadow-2xl p-6 rounded-xl flex flex-col items-center justify-center bg-gradient-to-br from-[#7A51EB] to-[#9F7AEA] text-white">
+                <div className="absolute w-full h-full backface-hidden rotate-y-180 shadow-2xl p-6 rounded-xl flex flex-col items-center justify-center bg-gradient-to-br from-[#1D4ED8] to-[#0EA5E9] text-white">
                   <p className="mt-2 text-justify text-lg">
                     {project.description}
                   </p>

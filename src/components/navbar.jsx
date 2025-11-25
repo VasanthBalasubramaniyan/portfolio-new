@@ -23,7 +23,7 @@ export default function Navbar() {
       }`}>
         <div className="nav-container__desc p-6 flex sm:justify-between items-center">
           <div>
-            <h1 className="nav-container__head text-2xl font-bold hover:text-[#7A51EB] hover:cursor-pointer transition-colors duration-300 transform hover:scale-105">VASANTH</h1>
+            <h1 className="nav-container__head text-2xl font-bold hover:text-[#1F3A8A] hover:cursor-pointer transition-colors duration-300 transform hover:scale-105">VASANTH</h1>
           </div>
           <div className="flex items-center">
             {/* Hamburger for mobile & tablet */}
@@ -33,7 +33,7 @@ export default function Navbar() {
               aria-controls="mobile-sidebar"
               aria-expanded={isOpen}
               onClick={() => setIsOpen((v) => !v)}
-              className="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-[#7A51EB] focus:outline-none transition-all duration-300 hover:bg-gray-100 rounded-lg"
+              className="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-[#1F3A8A] focus:outline-none transition-all duration-300 hover:bg-gray-100 rounded-lg"
             >
               <div className="relative w-7 h-7">
                 <span className={`absolute top-1 left-0 w-7 h-0.5 bg-current transition-all duration-300 ${
@@ -50,22 +50,22 @@ export default function Navbar() {
 
             {/* Desktop Nav */}
             <ul className="hidden lg:flex justify-between items-center gap-6 text-lg font-medium">
-              <li className="hover:text-[#7A51EB] hover:cursor-pointer transition-all duration-300 transform hover:scale-105">
+              <li className="hover:text-[#1F3A8A] hover:cursor-pointer transition-all duration-300 transform hover:scale-105">
                 <a href="#home" className="relative group">
                   HOME
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#7A51EB] transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#1F3A8A] transition-all duration-300 group-hover:w-full"></span>
                 </a>
               </li>
-              <li className="hover:text-[#7A51EB] hover:cursor-pointer transition-all duration-300 transform hover:scale-105">
+              <li className="hover:text-[#1F3A8A] hover:cursor-pointer transition-all duration-300 transform hover:scale-105">
                 <a href="#about" className="relative group">
                   ABOUT
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#7A51EB] transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#1F3A8A] transition-all duration-300 group-hover:w-full"></span>
                 </a>
               </li>
-              <li className="hover:text-[#7A51EB] hover:cursor-pointer transition-all duration-300 transform hover:scale-105">
+              <li className="hover:text-[#1F3A8A] hover:cursor-pointer transition-all duration-300 transform hover:scale-105">
                 <a href="#contact" className="relative group">
                   CONTACT
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#7A51EB] transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#1F3A8A] transition-all duration-300 group-hover:w-full"></span>
                 </a>
               </li>
             </ul>
@@ -91,7 +91,7 @@ export default function Navbar() {
         aria-modal="true"
       >
         {/* Sidebar Header */}
-        <div className="p-6 flex items-center justify-between border-b border-gray-200 bg-gradient-to-r from-[#7A51EB] to-[#9F7AEA] text-white">
+        <div className="p-6 flex items-center justify-between border-b border-gray-200 bg-gradient-to-r from-[#1D4ED8] to-[#0EA5E9] text-white">
           <span className="text-xl font-bold">Navigation</span>
           <button
             type="button"
@@ -114,7 +114,7 @@ export default function Navbar() {
               <a 
                 href="#home" 
                 onClick={closeMenu} 
-                className="block px-4 py-3 text-lg font-medium text-gray-700 hover:text-[#7A51EB] hover:bg-gray-100 rounded-lg transition-all duration-300 transform hover:translate-x-2 hover:scale-105"
+                className="block px-4 py-3 text-lg font-medium text-gray-700 hover:text-[#1F3A8A] hover:bg-gray-100 rounded-lg transition-all duration-300 transform hover:translate-x-2 hover:scale-105"
               >
                 🏠 HOME
               </a>
@@ -125,7 +125,7 @@ export default function Navbar() {
               <a 
                 href="#about" 
                 onClick={closeMenu} 
-                className="block px-4 py-3 text-lg font-medium text-gray-700 hover:text-[#7A51EB] hover:bg-gray-100 rounded-lg transition-all duration-300 transform hover:translate-x-2 hover:scale-105"
+                className="block px-4 py-3 text-lg font-medium text-gray-700 hover:text-[#1F3A8A] hover:bg-gray-100 rounded-lg transition-all duration-300 transform hover:translate-x-2 hover:scale-105"
               >
                 👨‍💻 ABOUT
               </a>
@@ -136,7 +136,7 @@ export default function Navbar() {
               <a 
                 href="#contact" 
                 onClick={closeMenu} 
-                className="block px-4 py-3 text-lg font-medium text-gray-700 hover:text-[#7A51EB] hover:bg-gray-100 rounded-lg transition-all duration-300 transform hover:translate-x-2 hover:scale-105"
+                className="block px-4 py-3 text-lg font-medium text-gray-700 hover:text-[#1F3A8A] hover:bg-gray-100 rounded-lg transition-all duration-300 transform hover:translate-x-2 hover:scale-105"
               >
                 📧 CONTACT
               </a>

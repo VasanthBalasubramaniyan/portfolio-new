@@ -1,5 +1,19 @@
+:root {
+  --color-primary: #1F3A8A;
+  --color-primary-light: #3B82F6;
+  --color-accent: #0EA5E9;
+  --color-muted: #475569;
+  --color-surface: #ffffff;
+  --color-bg: #F8FAFC;
+  --color-gradient-start: #1D4ED8;
+  --color-gradient-mid: #2563EB;
+  --color-gradient-end: #0EA5E9;
+}
+
 body {
-  background-image: url("./assets/img/body-bg.png");
+  background-color: var(--color-bg);
+  background-image: radial-gradient(at 20% 20%, rgba(37, 99, 235, 0.08), transparent 50%), radial-gradient(at 80% 0%, rgba(14, 165, 233, 0.08), transparent 45%), url("./assets/img/body-bg.png");
+  background-blend-mode: overlay;
 }
 .container {
   width: 80%;
@@ -145,7 +159,7 @@ body {
 }
 
 .hover-glow:hover {
-  box-shadow: 0 0 30px rgba(122, 81, 235, 0.3);
+  box-shadow: 0 0 30px rgba(31, 58, 138, 0.25);
 }
 
 .hover-scale {
@@ -184,7 +198,7 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(-45deg, #7A51EB, #9F7AEA, #7A51EB, #9F7AEA);
+  background: linear-gradient(-45deg, var(--color-gradient-start), var(--color-gradient-mid), var(--color-gradient-end), var(--color-gradient-mid));
   background-size: 400% 400%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -296,12 +310,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #7A51EB, #9F7AEA);
+  background: linear-gradient(45deg, var(--color-gradient-start), var(--color-gradient-end));
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #6B46C1, #8B5CF6);
+  background: linear-gradient(45deg, var(--color-gradient-mid), var(--color-gradient-end));
 }
 
 /* Enhanced Loading Animations */
@@ -358,7 +372,7 @@ body {
 
 /* Enhanced Focus States */
 *:focus {
-  outline: 2px solid #7A51EB;
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
@@ -428,7 +442,7 @@ button, a, input, textarea, select {
 
 /* Ensure proper text colors */
 .projects-section__head h1 {
-  color: #7A51EB;
+  color: var(--color-primary);
 }
 
 .project-card-title {
@@ -476,7 +490,7 @@ button, a, input, textarea, select {
 .project-section__cards__container .img-container svg {
   width: 80px;
   height: 80px;
-  color: #7A51EB;
+  color: var(--color-primary);
 }
 
 /* Ensure proper card alignment */
@@ -501,6 +515,18 @@ svg {
   image-rendering: crisp-edges;
 }
 
+.contact-button {
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+}
+
 
 /* Mobile Responsive */
 @media screen and (max-width: 639px) {
@@ -520,6 +546,9 @@ svg {
   .hire-button {
     padding: 12px;
   }
+  .contact-button {
+    padding: 12px;
+  }
   /* Container End */
 
   /* Header Section */
@@ -535,7 +564,8 @@ svg {
     font-size: xx-large;
   }
   .get-button,
-  .hire-button {
+  .hire-button,
+  .contact-button {
     font-size: large;
   }
   .header-section__img {

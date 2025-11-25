@@ -21,7 +21,7 @@ export default function App() {
 
   if (isLoading) {
     return (
-      <div className="fixed inset-0 bg-gradient-to-br from-[#7A51EB] via-[#9F7AEA] to-[#7A51EB] flex items-center justify-center z-50">
+      <div className="fixed inset-0 bg-gradient-to-br from-[#1D4ED8] via-[#2563EB] to-[#0EA5E9] flex items-center justify-center z-50">
         <div className="text-center">
           {/* Animated Logo */}
           <div className="mb-8">
@@ -30,7 +30,7 @@ export default function App() {
               <div className="absolute inset-2 rounded-full bg-white/30 animate-bounce"></div>
               <div className="absolute inset-4 rounded-full bg-white animate-spin">
                 <div className="w-full h-full flex items-center justify-center">
-                  <span className="text-2xl font-bold text-[#7A51EB]">VB</span>
+                  <span className="text-2xl font-bold text-[#1F3A8A]">VB</span>
                 </div>
               </div>
             </div>
@@ -39,12 +39,12 @@ export default function App() {
           {/* Multi-colored Loading Spinner */}
           <div className="relative mb-6">
             <div className="w-20 h-20 mx-auto relative pulse-glow">
-              <div className="absolute inset-0 rounded-full border-4 border-transparent border-t-[#FF6B6B] animate-spin"></div>
-              <div className="absolute inset-0 rounded-full border-4 border-transparent border-r-[#4ECDC4] animate-spin" style={{animationDelay: '0.1s'}}></div>
-              <div className="absolute inset-0 rounded-full border-4 border-transparent border-b-[#45B7D1] animate-spin" style={{animationDelay: '0.2s'}}></div>
-              <div className="absolute inset-0 rounded-full border-4 border-transparent border-l-[#96CEB4] animate-spin" style={{animationDelay: '0.3s'}}></div>
-              <div className="absolute inset-2 rounded-full border-2 border-transparent border-t-[#FFD93D] animate-spin" style={{animationDelay: '0.4s'}}></div>
-              <div className="absolute inset-2 rounded-full border-2 border-transparent border-b-[#6BCF7F] animate-spin" style={{animationDelay: '0.5s'}}></div>
+              <div className="absolute inset-0 rounded-full border-4 border-transparent border-t-[#1F3A8A] animate-spin"></div>
+              <div className="absolute inset-0 rounded-full border-4 border-transparent border-r-[#3B82F6] animate-spin" style={{animationDelay: '0.1s'}}></div>
+              <div className="absolute inset-0 rounded-full border-4 border-transparent border-b-[#0EA5E9] animate-spin" style={{animationDelay: '0.2s'}}></div>
+              <div className="absolute inset-0 rounded-full border-4 border-transparent border-l-[#38BDF8] animate-spin" style={{animationDelay: '0.3s'}}></div>
+              <div className="absolute inset-2 rounded-full border-2 border-transparent border-t-[#93C5FD] animate-spin" style={{animationDelay: '0.4s'}}></div>
+              <div className="absolute inset-2 rounded-full border-2 border-transparent border-b-[#E0F2FE] animate-spin" style={{animationDelay: '0.5s'}}></div>
             </div>
           </div>
           
@@ -60,7 +60,7 @@ export default function App() {
           
           {/* Progress Bar */}
           <div className="w-64 h-2 bg-white/20 rounded-full mx-auto mt-6 overflow-hidden relative">
-            <div className="h-full bg-gradient-to-r from-[#FF6B6B] via-[#4ECDC4] to-[#45B7D1] rounded-full shimmer-loading relative">
+            <div className="h-full bg-gradient-to-r from-[#1F3A8A] via-[#2563EB] to-[#0EA5E9] rounded-full shimmer-loading relative">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent shimmer-loading"></div>
             </div>
           </div>
