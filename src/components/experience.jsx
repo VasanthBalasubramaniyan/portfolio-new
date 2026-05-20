@@ -2,13 +2,13 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export default function Experience() {
   const [headerRef, isHeaderVisible] = useScrollAnimation(0.2);
-  const [contentRef, isContentVisible] = useScrollAnimation(0.3);
+  const [contentRef, isContentVisible] = useScrollAnimation(0.2);
 
   const experiences = [
     {
       title: "AWS Cloud App Developer Intern (TN Skills)",
       company: "Scope Tech Software Solutions",
-      location: "Madurai,Tamil Nadu, India",
+      location: "Madurai, Tamil Nadu, India",
       duration: "Jan 2026 – Present",
       bullets: [
         "Configured and managed AWS services (EC2, S3, IAM, VPC) for cloud-based environments, improving deployment efficiency by ~30%",
@@ -32,57 +32,63 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-24 px-4 bg-navy-gradient text-[#212121] relative border-b border-gray-200">
+    <section id="experience" className="py-28 px-4 bg-[var(--bg-color)] text-[var(--text-color)] relative transition-colors duration-350 border-b border-[var(--surface-border)]">
+      
+      {/* Decorative ambient spot for experience */}
+      <div className="absolute bottom-[10%] left-[5%] w-80 h-80 bg-[rgba(16,185,129,0.03)] rounded-full blur-[120px] pointer-events-none"></div>
+
       <div className="container">
         
         <div 
           ref={headerRef}
-          className={`fade-in-up text-center mb-16 ${isHeaderVisible ? 'visible' : ''}`}
+          className={`fade-in-up text-center mb-20 ${isHeaderVisible ? 'visible' : ''}`}
         >
-          <h1 className="text-4xl font-bold inline-block relative text-[#0A1628]">
+          <h1 className="text-4xl font-extrabold glowing-title-center text-[var(--text-color)]">
             Professional Journey
-            <span className="absolute bottom-[-10px] left-1/4 w-1/2 h-[4px] bg-[#00BCD4]"></span>
           </h1>
         </div>
 
-        <div className="max-w-4xl mx-auto relative pl-8 md:pl-12 timeline-line">
+        <div className="max-w-4xl mx-auto relative pl-10 md:pl-14 timeline-track">
           {experiences.map((exp, index) => (
             <div 
               key={index}
               ref={contentRef}
-              className={`relative bg-white rounded-xl p-8 shadow-md border border-gray-100 transition-all hover-lift duration-300 fade-in-up mb-12 last:mb-0 ${isContentVisible ? 'visible' : ''}`}
-              style={{ transitionDelay: `${index * 0.2}s` }}
+              className={`relative glass-card rounded-2xl p-8 fade-in-up mb-12 last:mb-0 ${isContentVisible ? 'visible' : ''}`}
+              style={{ transitionDelay: `${index * 0.15}s` }}
             >
-              {/* Teal Dot on Timeline */}
-              <div className="absolute left-[-32px] md:left-[-48px] top-10 w-4 h-4 bg-[#00BCD4] rounded-full shadow-[0_0_8px_rgba(0,188,212,0.6)] z-10 translate-x-[-1.5px]"></div>
+              {/* Glowing Green Dot on Timeline Pipeline */}
+              <div className="absolute left-[-49px] md:left-[-65px] top-10 w-5 h-5 bg-[#10b981] rounded-full timeline-dot z-10 border-[3.5px] border-[var(--bg-color)]"></div>
 
-              <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center mb-6">
-                {/* Logo Placeholder */}
-                <div className="w-16 h-16 bg-[#F5F5F5] rounded-full border-2 border-[#00BCD4] flex items-center justify-center flex-shrink-0 text-[#9E9E9E]">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
+              <div className="flex flex-col md:flex-row gap-6 items-start md:items-center mb-6">
+                
+                {/* Visual Company Icon Badge */}
+                <div className="w-14 h-14 bg-[var(--surface-color)] rounded-2xl border border-[rgba(16,185,129,0.25)] flex items-center justify-center flex-shrink-0 text-[var(--accent-color)] shadow-sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor" className="w-7 h-7">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />
                   </svg>
                 </div>
                 
-                <div className="flex-1 w-full flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 border-b border-gray-100 pb-4">
+                <div className="flex-1 w-full flex flex-col md:flex-row md:justify-between md:items-center gap-4 border-b border-[var(--surface-border)] pb-5">
                   <div>
-                    <h2 className="text-2xl font-bold text-[#0A1628]">{exp.title}</h2>
-                    <h3 className="text-lg font-medium text-[#1E3A5F] mt-1">
-                      {exp.company} <span className="text-[#9E9E9E]">| {exp.location}</span>
+                    <h2 className="text-2xl font-black text-[var(--text-color)] leading-tight">{exp.title}</h2>
+                    <h3 className="text-[17px] font-semibold text-[var(--accent-color)] mt-1.5 flex items-center flex-wrap gap-1.5">
+                      <span>{exp.company}</span>
+                      <span className="text-[var(--text-muted)] font-normal text-sm">|</span>
+                      <span className="text-[var(--text-secondary)] font-medium text-[15px]">{exp.location}</span>
                     </h3>
                   </div>
-                  <div className="bg-[#E0F7FA] px-4 py-1.5 rounded-full inline-block">
-                    <span className="text-[#00838F] font-bold text-sm tracking-wide">{exp.duration}</span>
+                  <div className="bg-[var(--accent-bg-soft)] border border-[rgba(16,185,129,0.2)] px-4.5 py-2 rounded-xl inline-block shadow-sm flex-shrink-0 self-start md:self-auto">
+                    <span className="text-[var(--accent-color)] font-bold text-[13px] tracking-wider uppercase font-mono">{exp.duration}</span>
                   </div>
                 </div>
               </div>
               
-              <div className="text-[#424242] leading-relaxed">
-                <ul className="space-y-3">
+              <div className="text-[var(--text-secondary)] leading-relaxed">
+                <ul className="space-y-3.5">
                   {exp.bullets.map((bullet, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <div className="mt-2 min-w-[8px] min-h-[8px] bg-[#00BCD4] rounded-full flex-shrink-0"></div>
-                      <span>{bullet}</span>
+                      <div className="mt-2.5 min-w-[7px] min-h-[7px] bg-[#10b981] rounded-full flex-shrink-0 shadow-[0_0_6px_rgba(16,185,129,0.7)]"></div>
+                      <span className="text-[15.5px]">{bullet}</span>
                     </li>
                   ))}
                 </ul>
