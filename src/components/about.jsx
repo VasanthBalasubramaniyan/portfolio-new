@@ -85,7 +85,7 @@ export default function About() {
               I'm Vasanth B, a Data Engineer with hands-on experience in SQL, Python, and AWS. I specialize in building batch ETL pipelines using Sqoop, Hive, and Apache Spark, focusing on transforming raw datasets into structured, highly queryable resources.
             </p>
             <p className="text-[17px] leading-relaxed mb-8 text-[var(--text-secondary)]">
-              Currently, I am deepening my practical expertise through an AWS Cloud Developer Internship at Scope Tech Software Solutions, configuring and deploying secure, isolated cloud architectures with EC2, S3, IAM, and custom VPC settings.
+              Recently, I deepened my practical expertise through an AWS Cloud Developer Internship at Scope Tech Software Solutions, configuring and deploying secure, isolated cloud architectures with EC2, S3, IAM, and custom VPC settings.
             </p>
             
             <div className="inline-flex items-center gap-3.5 bg-[var(--accent-bg-soft)] text-[var(--accent-text)] px-6 py-3 rounded-2xl shadow-sm border border-[rgba(16,185,129,0.2)] self-start font-semibold text-[15px]">

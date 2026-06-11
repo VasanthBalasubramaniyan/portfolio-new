@@ -9,7 +9,7 @@ export default function Experience() {
       title: "AWS Cloud App Developer Intern (TN Skills)",
       company: "Scope Tech Software Solutions",
       location: "Madurai, Tamil Nadu, India",
-      duration: "Jan 2026 – Present",
+      duration: "Jan 2026 – May 2026",
       bullets: [
         "Configured and managed AWS services (EC2, S3, IAM, VPC) for cloud-based environments, improving deployment efficiency by ~30%",
         "Implemented secure access control using IAM roles and policies to enforce least-privilege security standards",
