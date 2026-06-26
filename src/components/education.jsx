@@ -8,20 +8,17 @@ export default function Education() {
     {
       degree: "Bachelor of Engineering — Computer Science & Engineering",
       institution: "Nehru Institute of Engineering and Technology",
-      score: "7.6 CGPA",
       year: "2019 – 2023",
       icon: "🎓"
     },
     {
       level: "Higher Secondary (HSC)",
       institution: "SDA Matric Hr. Sec. School",
-      score: "66%",
       year: "2018 – 2019"
     },
     {
       level: "Secondary (SSLC)",
       institution: "SDA Matric Hr. Sec. School",
-      score: "92%",
       year: "2016 – 2017"
     }
   ];
@@ -65,11 +62,7 @@ export default function Education() {
                   <p className="text-[16px] md:text-lg font-bold text-[var(--accent-color)]">
                     {edu.institution}
                   </p>
-                  <div className="flex gap-4 mt-3">
-                    <span className="bg-[var(--surface-color)] border border-[var(--surface-border)] px-3 py-1.5 rounded-lg text-sm font-bold text-[var(--text-secondary)] shadow-sm">
-                      Score: {edu.score}
-                    </span>
-                  </div>
+
                 </div>
               </div>
               
