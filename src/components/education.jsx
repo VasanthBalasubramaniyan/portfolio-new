@@ -6,20 +6,10 @@ export default function Education() {
 
   const educationList = [
     {
-      degree: "Bachelor of Engineering — Computer Science & Engineering",
-      institution: "Nehru Institute of Engineering and Technology",
-      year: "2019 – 2023",
+      degree: "Bachelor of Engineering (Computer Science and Engineering)",
+      institution: "Nehru Institute of Engineering and Technology, Coimbatore",
+      year: "May 2023",
       icon: "🎓"
-    },
-    {
-      level: "Higher Secondary (HSC)",
-      institution: "SDA Matric Hr. Sec. School",
-      year: "2018 – 2019"
-    },
-    {
-      level: "Secondary (SSLC)",
-      institution: "SDA Matric Hr. Sec. School",
-      year: "2016 – 2017"
     }
   ];
 

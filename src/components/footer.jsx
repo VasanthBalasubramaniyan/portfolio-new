@@ -12,9 +12,9 @@ export default function Footer() {
             {/* COLUMN 1 — Brand & Identity */}
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
               <h3 className="text-[24px] font-black tracking-widest text-[var(--accent-color)] mb-1">VASANTH B</h3>
-              <p className="text-[14px] text-gray-400 mb-2 font-medium">Data Engineer | ETL | AWS</p>
+              <p className="text-[14px] text-gray-400 mb-2 font-medium">Data Engineer | AWS | PySpark | Databricks</p>
               <p className="text-[13px] italic text-gray-500 mt-2 leading-relaxed font-mono">
-                Building scalable data pipelines,<br/>one batch at a time.
+                Building scalable, reliable &<br/>analytics-ready data platforms.
               </p>
               <div className="mt-[24px]">
                 <p className="text-[12px] text-gray-500 font-mono">
@@ -27,10 +27,20 @@ export default function Footer() {
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
               <h4 className="text-[16px] font-bold text-[#FFFFFF] pb-2 mb-6 border-b-2 border-[var(--accent-color)] w-[40px]">Quick Links</h4>
               <ul className="flex flex-col gap-[10px]">
-                {['Home', 'About', 'Experience', 'Projects', 'Skills', 'Certifications', 'Contact'].map((link) => (
-                  <li key={link}>
-                    <a href={`#${link.toLowerCase()}`} className="text-gray-400 text-[14px] hover:text-[var(--accent-color)] hover:translate-x-1.5 inline-block transition-all duration-200 ease-in-out">
-                      {link}
+                {[
+                  { label: 'Home', target: '#home' },
+                  { label: 'About', target: '#about' },
+                  { label: 'Impact', target: '#impact' },
+                  { label: 'Skills', target: '#skills' },
+                  { label: 'Experience', target: '#experience' },
+                  { label: 'Projects', target: '#projects' },
+                  { label: 'Architecture', target: '#architecture' },
+                  { label: 'Education', target: '#education' },
+                  { label: 'Contact', target: '#contact' }
+                ].map((link) => (
+                  <li key={link.label}>
+                    <a href={link.target} className="text-gray-400 text-[14px] hover:text-[var(--accent-color)] hover:translate-x-1.5 inline-block transition-all duration-200 ease-in-out">
+                      {link.label}
                     </a>
                   </li>
                 ))}
@@ -42,21 +52,21 @@ export default function Footer() {
               <h4 className="text-[16px] font-bold text-[#FFFFFF] pb-2 mb-6 border-b-2 border-[var(--accent-color)] w-[40px]">Contact</h4>
               <ul className="flex flex-col gap-[12px]">
                 <li>
-                  <a href="mailto:get.vasanthb.be@gmail.com" className="flex items-center gap-3 group">
+                  <a href="mailto:get.vasanth.b@gmail.com" className="flex items-center gap-3 group">
                     <span className="text-[var(--accent-color)] text-lg">📧</span>
-                    <span className="text-gray-400 text-[14px] group-hover:text-[var(--accent-color)] transition-colors duration-200">get.vasanthb.be@gmail.com</span>
+                    <span className="text-gray-400 text-[14px] group-hover:text-[var(--accent-color)] transition-colors duration-200">get.vasanth.b@gmail.com</span>
                   </a>
                 </li>
                 <li>
-                  <a href="tel:+918248347763" className="flex items-center gap-3 group">
+                  <a href="tel:+919566678426" className="flex items-center gap-3 group">
                     <span className="text-[var(--accent-color)] text-lg">📞</span>
-                    <span className="text-gray-400 text-[14px] group-hover:text-[var(--accent-color)] transition-colors duration-200">+91 8248347763</span>
+                    <span className="text-gray-400 text-[14px] group-hover:text-[var(--accent-color)] transition-colors duration-200">+91-9566678426</span>
                   </a>
                 </li>
                 <li>
                   <div className="flex items-center gap-3">
                     <span className="text-[var(--accent-color)] text-lg">📍</span>
-                    <span className="text-gray-400 text-[14px]">Tamil Nadu, India</span>
+                    <span className="text-gray-400 text-[14px]">Chennai, India</span>
                   </div>
                 </li>
               </ul>
@@ -67,7 +77,7 @@ export default function Footer() {
               <h4 className="text-[16px] font-bold text-[#FFFFFF] pb-2 mb-6 border-b-2 border-[var(--accent-color)] w-[40px]">Connect</h4>
               <div className="flex gap-[12px] mb-4">
                 <a 
-                  href="https://www.linkedin.com/in/vasanthbalasubramaniyan/" 
+                  href="https://linkedin.com/in/vasanthbalasubramaniyan" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="w-[44px] h-[44px] bg-[#111827] border border-[rgba(16,185,129,0.18)] rounded-xl flex items-center justify-center text-[var(--accent-color)] hover:bg-[var(--accent-color)] hover:text-white hover:shadow-[0_0_12px_rgba(16,185,129,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer"
@@ -89,7 +99,7 @@ export default function Footer() {
                   </svg>
                 </a>
                 <a 
-                  href="mailto:get.vasanthb.be@gmail.com" 
+                  href="mailto:get.vasanth.b@gmail.com" 
                   className="w-[44px] h-[44px] bg-[#111827] border border-[rgba(16,185,129,0.18)] rounded-xl flex items-center justify-center text-[var(--accent-color)] hover:bg-[var(--accent-color)] hover:text-white hover:shadow-[0_0_12px_rgba(16,185,129,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer"
                   title="Email"
                 >
@@ -103,14 +113,14 @@ export default function Footer() {
               </p>
             </div>
           </div>
-        </div>
-        
-        {/* FOOTER BOTTOM BAR */}
-        <div className="mt-[40px] border-t border-gray-800 pt-[16px] relative z-10">
-          <div className="container mx-auto px-4 text-center">
-            <p className="text-[12px] text-gray-500 font-mono">
-              Designed & Built by Vasanth B — Data Engineer | Tamil Nadu, India
-            </p>
+          
+          {/* FOOTER BOTTOM BAR */}
+          <div className="mt-[40px] border-t border-gray-800 pt-[16px] relative z-10">
+            <div className="container mx-auto px-4 text-center">
+              <p className="text-[12px] text-gray-500 font-mono">
+                Designed & Built by Vasanth B — Data Engineer | Chennai, India
+              </p>
+            </div>
           </div>
         </div>
       </footer>

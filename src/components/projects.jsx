@@ -7,15 +7,15 @@ const SparkTerminalLog = () => {
   const [index, setIndex] = useState(0);
 
   const logSequence = [
-    "[INFO] SparkSession successfully initialized on cluster.",
-    "[CONN] Sqoop increment connector triggered for 'orders_db'.",
-    "[SQOOP] Ingestion: SQL Server -> HDFS raw directories (100% complete).",
-    "[SPARK] RDD loaded: raw partition path '/user/hive/warehouse/raw'.",
-    "[SPARK] Executing transformations: Clean nulls, cast datatypes.",
-    "[SPARK] Spark SQL joining raw records with dimension tables.",
-    "[SPARK] Analytical DataFrame partitioned by Date & Location.",
-    "[HIVE] Bulk loading partitioned parquet into Hive database.",
-    "[SUCCESS] Batch ETL executed. Task sleeping. Next execution in 6h.",
+    "[INFO] SparkSession initialized on AWS EMR / Databricks cluster.",
+    "[INGEST] Kinesis & AWS Lambda CDC listener active for transactional stream.",
+    "[RAW] Ingesting raw JSON/Avro to Amazon S3 Bronze Lakehouse Layer.",
+    "[DELTA] Writing Delta Lake Bronze table: MERGE INTO staging_bronze.",
+    "[SPARK] Executing PySpark Catalyst Optimizer: Partition pruning enabled.",
+    "[DBT] Running dbt models: incremental silver_clean & gold_aggregated.",
+    "[QUALITY] Great Expectations validation check: Schema drift 0%, Nulls <0.01%.",
+    "[REDSHIFT] COPY command executed: Loading Gold tables into Amazon Redshift.",
+    "[SUCCESS] Airflow DAG 'banking_daily_etl' completed (Duration: 14m 20s).",
   ];
 
   useEffect(() => {
@@ -70,33 +70,33 @@ export default function Projects() {
 
   const projects = [
     {
-      title: "Batch ETL Pipeline using Sqoop, Hive & Apache Spark",
-      status: "🚧 In Development",
-      tags: ["MySQL", "Sqoop", "HDFS", "Hive", "Apache Spark", "PySpark", "Spark SQL", "Cron"],
-      description: "End-to-end batch ETL pipeline that incrementally ingests data from MySQL into HDFS via Sqoop, processes it with PySpark and Spark SQL, and stores results in Hive for analytical querying — simulating real-world batch data processing systems.",
+      title: "Banking Transaction Data Platform",
+      status: "⚡ Production Platform",
+      tags: ["PySpark", "AWS Glue", "Amazon S3", "Databricks", "Delta Lake", "Apache Airflow", "dbt", "Amazon Redshift", "Power BI", "SQL"],
+      description: "A scalable banking data platform designed to ingest, transform, validate, and serve high-volume transaction data (500GB–1TB daily) for enterprise analytics and executive reporting.",
       features: [
-        "Incremental data ingestion from MySQL → HDFS using Sqoop",
-        "Hive external tables for managing and querying raw data",
-        "PySpark transformations: filtering, aggregation, business logic",
-        "Automated pipeline execution via Cron scheduling"
+        "Serverless & distributed ETL/ELT pipelines built with PySpark, AWS Glue, and Databricks",
+        "Medallion Architecture (Bronze, Silver, Gold) on S3 with Delta Lake ACID transactions",
+        "dbt transformations for incremental loading, schema validation & data quality enforcement",
+        "Optimized Amazon Redshift dimensional star-schema warehouse backing Power BI dashboards"
       ],
       githubLink: "https://github.com/VasanthBalasubramaniyan/",
       demoLink: null,
       hasTerminal: true
     },
     {
-      title: "Personal Portfolio Website",
-      status: "✅ Live",
-      tags: ["HTML", "CSS", "Tailwind CSS", "JavaScript", "React.js"],
-      description: "A clean, modern, responsive portfolio website built with React.js and Tailwind CSS to showcase data engineering projects, technical skills, and professional experience — with reusable components and optimized performance.",
+      title: "Healthcare Claims Pipeline Modernization",
+      status: "⚡ Cloud Lakehouse",
+      tags: ["PySpark", "Databricks", "AWS Glue", "Amazon S3", "Delta Lake", "Apache Airflow", "Amazon Kinesis", "CDC", "dbt"],
+      description: "A modern data engineering pipeline focused on transforming large-scale healthcare claims workloads into reliable, analytics-ready datasets using distributed processing, cloud services, and Lakehouse architecture.",
       features: [
-        "Fully responsive design across all device sizes",
-        "Reusable React components for scalability",
-        "Dynamic project sections with smooth navigation",
-        "Performance-optimized static deployment"
+        "Near real-time streaming ingestion via Amazon Kinesis and Change Data Capture (CDC)",
+        "30% batch latency reduction via Spark Catalyst optimization and Parquet partition pruning",
+        "Apache Airflow orchestration with DAG task dependencies, automated retries & SLA monitoring",
+        "Automated CloudWatch monitoring and schema enforcement reducing reporting errors by 40%"
       ],
-      githubLink: "https://github.com/VasanthBalasubramaniyan/portfolio-new",
-      demoLink: "https://vasanth-portfolio-xtjc.onrender.com/",
+      githubLink: "https://github.com/VasanthBalasubramaniyan/",
+      demoLink: null,
       hasTerminal: false
     }
   ];

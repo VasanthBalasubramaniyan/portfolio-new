@@ -6,27 +6,69 @@ export default function Experience() {
 
   const experiences = [
     {
-      title: "AWS Cloud App Developer Intern (TN Skills)",
-      company: "Scope Tech Software Solutions",
-      location: "Madurai, Tamil Nadu, India",
-      duration: "Jan 2026 – May 2026",
+      title: "Data Engineer",
+      company: "Globe Infotech Pvt. Ltd",
+      location: "Chennai, India",
+      duration: "Oct 2025 – Present",
+      project: "Banking Transaction Data Platform & Healthcare Claims Pipeline Modernization",
+      metrics: [
+        "500GB–1TB Daily Processing",
+        "30% Lower Latency",
+        "40% Fewer Reporting Errors",
+        "Days → 15 Min Release Time"
+      ],
       bullets: [
-        "Configured and managed AWS services (EC2, S3, IAM, VPC) for cloud-based environments, improving deployment efficiency by ~30%",
-        "Implemented secure access control using IAM roles and policies to enforce least-privilege security standards",
-        "Designed and configured VPC architecture including subnets and networking components for isolated environments",
-        "Deployed and tested cloud resources, reducing manual configuration effort by ~25%"
+        "Designed and developed scalable ETL/ELT pipelines for banking and healthcare domains, processing 500GB–1TB of data daily using PySpark, AWS Glue, and Databricks.",
+        "Implemented near real-time data ingestion using Amazon Kinesis and Change Data Capture (CDC).",
+        "Reduced batch processing latency by 30% through Catalyst optimizer tuning and Parquet/ORC partition pruning.",
+        "Built a Medallion Architecture (Bronze, Silver, Gold) using Databricks and Delta Lake on Amazon S3.",
+        "Standardized data quality and schema enforcement across data layers.",
+        "Orchestrated complex workflows using Apache Airflow with task dependencies, retries, and SLA monitoring.",
+        "Integrated AWS Lambda and AWS Step Functions for event-driven triggers.",
+        "Developed reusable dbt transformations with incremental loading.",
+        "Implemented automated data validation and monitoring using Amazon CloudWatch, reducing downstream reporting errors by 40%.",
+        "Built CI/CD pipelines using GitHub Actions and Docker, reducing release time from days to 15 minutes."
       ]
     },
     {
-      title: "Customer Support Executive",
+      title: "Associate Data Engineer",
       company: "Troika Research Technologies",
-      location: "Coimbatore, Tamil Nadu, India",
-      duration: "Jan 2024 – Sept 2025",
+      location: "Chennai, India",
+      duration: "Jan 2024 – Sep 2025",
+      project: "Customer Transaction Data Processing System (Banking / Financial Services)",
+      metrics: [
+        "35% Lower Storage Cost",
+        "25% Better Reconciliation",
+        "45s → 8s Query Latency"
+      ],
       bullets: [
-        "Handled high-volume outbound calls, effectively communicating with clients and resolving queries",
-        "Maintained consistent call quality and professionalism across all customer interactions",
-        "Developed strong communication, active listening, and problem-solving skills in a fast-paced environment",
-        "Collaborated with team members to meet daily outbound call targets and performance goals"
+        "Developed serverless ETL pipelines for daily banking transaction processing using PySpark, AWS Glue, and Pandas.",
+        "Ingested data from PostgreSQL, MySQL, Microsoft SQL Server, and REST APIs using AWS Lambda and AWS Step Functions.",
+        "Developed and scheduled Apache Airflow DAGs for automated batch ETL workflows with retry mechanisms, dependency management, and failure alerting.",
+        "Built multi-zone Data Lake structures (Raw, Processed, Curated) on Amazon S3 using Delta Lake ACID transactions and S3 Intelligent-Tiering, reducing storage costs by 35%.",
+        "Authored SQL transformations using CTEs, Window Functions, and Stored Procedures.",
+        "Implemented dbt data quality checks and schema drift detection, improving financial reconciliation accuracy by 25%.",
+        "Optimized Amazon Redshift using execution plans, distribution keys, sort keys, and WLM configuration, reducing average BI query latency from 45 seconds to 8 seconds.",
+        "Supported Power BI reporting through optimized dimensional models and DAX measures."
+      ]
+    },
+    {
+      title: "Data Engineer Intern",
+      company: "Knitech Soft Solution",
+      location: "Coimbatore, India",
+      duration: "Apr 2023 – Jan 2024",
+      project: "Marketing Campaign Analytics Data Pipeline",
+      metrics: [
+        "ETL Workflows",
+        "Redshift Warehousing",
+        "Power BI Dashboards"
+      ],
+      bullets: [
+        "Developed ETL workflows to extract, clean, and transform customer marketing campaign data using Python, Pandas, and NumPy.",
+        "Performed missing-value handling, duplicate removal, and written SQL queries using GROUP BY, CTEs, subqueries, and window functions.",
+        "Loaded transformed datasets into Amazon Redshift with schema validation and consistency checks.",
+        "Prepared analytics-ready datasets supporting customer response prediction analysis.",
+        "Built Power BI dashboard components for campaign performance and customer response metrics."
       ]
     }
   ];
@@ -83,6 +125,23 @@ export default function Experience() {
                 </div>
               </div>
               
+              {exp.project && (
+                <div className="mb-4 bg-[var(--surface-color)] p-3.5 rounded-xl border border-[var(--surface-border)] font-mono text-[13.5px]">
+                  <span className="text-[var(--accent-color)] font-bold">PROJECT: </span>
+                  <span className="text-[var(--text-color)] font-semibold">{exp.project}</span>
+                </div>
+              )}
+
+              {exp.metrics && exp.metrics.length > 0 && (
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {exp.metrics.map((metric, idx) => (
+                    <span key={idx} className="px-3 py-1 bg-[#10b981]/10 text-[var(--accent-color)] border border-[#10b981]/25 rounded-lg text-[12.5px] font-mono font-bold tracking-wide">
+                      ⚡ {metric}
+                    </span>
+                  ))}
+                </div>
+              )}
+
               <div className="text-[var(--text-secondary)] leading-relaxed">
                 <ul className="space-y-3.5">
                   {exp.bullets.map((bullet, idx) => (

@@ -2,12 +2,13 @@ import './App.css'
 import Navbar from './components/navbar'
 import Header from './components/header'
 import About from './components/about'
+import Impact from './components/impact'
 import Skills from './components/skills'
 import Projects from './components/projects'
 import Experience from './components/experience'
-import Footer from './components/footer'
-import Certifications from './components/certifications'
+import Architecture from './components/architecture'
 import Education from './components/education'
+import Footer from './components/footer'
 import { useState, useEffect } from 'react'
 
 export default function App() {
@@ -50,7 +51,7 @@ export default function App() {
           </div>
           
           <div className="space-y-4">
-            <p className="text-[14px] font-bold text-[#10b981] uppercase tracking-[0.25em] animate-pulse">Initializing System</p>
+            <p className="text-[14px] font-bold text-[#10b981] uppercase tracking-[0.25em] animate-pulse">Initializing Data System</p>
             <div className="w-48 h-[4px] bg-[#111827] overflow-hidden mx-auto rounded-full relative">
               <div className="h-full bg-gradient-to-r from-[#10b981] to-[#34d399] w-[45%] shimmer-loading-bar rounded-full absolute left-0 top-0"></div>
             </div>
@@ -66,16 +67,16 @@ export default function App() {
         <div className="scroll-progress-bar" style={{ width: `${scrollProgress}%` }}></div>
       </div>
       
-      <Navbar></Navbar>
-      <Header resumeLink='/Vasanth - Resume.pdf'></Header>
-      <About></About>
-      <Experience></Experience>
-      <Projects></Projects>
-      <Skills></Skills>
-      <Certifications></Certifications>
-      <Education></Education>
-      
-      <Footer></Footer>
+      <Navbar />
+      <Header resumeLink='/Vasanth - Resume.pdf' />
+      <About />
+      <Impact />
+      <Skills />
+      <Experience />
+      <Projects />
+      <Architecture />
+      <Education />
+      <Footer />
     </div>
   )
 }

@@ -43,21 +43,39 @@ export default function Header({ resumeLink }) {
             Available for Opportunities
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-extrabold text-[var(--text-color)] mb-4 tracking-tight leading-none">
+          <h1 className="text-5xl md:text-7xl font-extrabold text-[var(--text-color)] mb-3 tracking-tight leading-none">
             VASANTH B
           </h1>
-          <h2 className="text-xl md:text-2xl font-bold text-[var(--accent-color)] mb-6 flex flex-wrap items-center justify-center md:justify-start gap-x-2 gap-y-1">
+          
+          <h2 className="text-2xl md:text-3xl font-extrabold text-[var(--accent-color)] mb-4 flex flex-wrap items-center justify-center md:justify-start gap-x-2 gap-y-1">
             <span>Data Engineer</span>
-            <span className="text-[var(--text-muted)] font-normal text-lg hidden md:inline">|</span>
-            <span className="text-[var(--text-secondary)]">ETL Pipelines</span>
-            <span className="text-[var(--text-muted)] font-normal text-lg hidden md:inline">|</span>
-            <span className="text-[var(--text-secondary)]">Apache Spark</span>
-            <span className="text-[var(--text-muted)] font-normal text-lg hidden md:inline">|</span>
-            <span className="text-[var(--text-secondary)]">AWS Cloud</span>
           </h2>
-          <p className="text-[17px] text-[var(--text-secondary)] mb-8 max-w-2xl leading-relaxed">
-            Aspiring Data Engineer with hands-on experience in batch ETL pipelines, Apache Spark, Hive, and AWS Cloud — passionate about building scalable data solutions and distributed systems.
+
+          <p className="text-lg md:text-xl font-semibold text-[var(--text-color)] mb-4 max-w-2xl leading-snug">
+            Building scalable, reliable, and analytics-ready data platforms.
           </p>
+
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 mb-6">
+            {["AWS", "PySpark", "Apache Spark", "Databricks", "Apache Airflow", "SQL"].map((badge, idx) => (
+              <span key={idx} className="px-3 py-1 bg-[var(--accent-bg-soft)] text-[var(--accent-text)] border border-[rgba(16,185,129,0.25)] rounded-lg text-[13px] font-bold tracking-wide">
+                {badge}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-[14px] text-[var(--text-muted)] mb-8 font-medium">
+            <span className="flex items-center gap-1.5">
+              <span className="text-[var(--accent-color)]">📍</span> Chennai, India
+            </span>
+            <span className="hidden md:inline">•</span>
+            <a href="mailto:get.vasanth.b@gmail.com" className="flex items-center gap-1.5 hover:text-[var(--accent-color)] transition-colors">
+              <span className="text-[var(--accent-color)]">✉️</span> get.vasanth.b@gmail.com
+            </a>
+            <span className="hidden md:inline">•</span>
+            <a href="tel:+919566678426" className="flex items-center gap-1.5 hover:text-[var(--accent-color)] transition-colors">
+              <span className="text-[var(--accent-color)]">📞</span> +91-9566678426
+            </a>
+          </div>
 
           <div className="flex flex-wrap gap-4 justify-center md:justify-start mb-8">
             <a 
@@ -83,7 +101,7 @@ export default function Header({ resumeLink }) {
 
           <div className="flex gap-4">
             <a 
-              href="https://www.linkedin.com/in/vasanthbalasubramaniyan/" 
+              href="https://linkedin.com/in/vasanthbalasubramaniyan" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="w-11 h-11 bg-[var(--surface-color)] border border-[var(--surface-border)] rounded-xl flex items-center justify-center text-[var(--text-color)] hover:text-white hover:bg-[var(--accent-color)] hover:border-[var(--accent-color)] hover:shadow-[0_0_15px_rgba(16,185,129,0.4)] transition-all duration-300 cursor-pointer"
@@ -105,7 +123,7 @@ export default function Header({ resumeLink }) {
               </svg>
             </a>
             <a 
-              href="mailto:get.vasanthb.be@gmail.com" 
+              href="mailto:get.vasanth.b@gmail.com" 
               className="w-11 h-11 bg-[var(--surface-color)] border border-[var(--surface-border)] rounded-xl flex items-center justify-center text-[var(--text-color)] hover:text-white hover:bg-[var(--accent-color)] hover:border-[var(--accent-color)] hover:shadow-[0_0_15px_rgba(16,185,129,0.4)] transition-all duration-300 cursor-pointer"
               title="Email"
             >

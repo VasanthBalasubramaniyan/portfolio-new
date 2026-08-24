@@ -5,8 +5,8 @@ export default function About() {
 
   const highlights = [
     {
-      title: "ETL Pipeline Development",
-      desc: "Incremental batch ingestion with Sqoop, Hive, and Apache Spark.",
+      title: "ETL / ELT Pipelines",
+      desc: "Scalable batch and streaming ingestion using PySpark, AWS Glue, Kinesis, and CDC.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
           <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
@@ -14,17 +14,17 @@ export default function About() {
       )
     },
     {
-      title: "Python & Advanced SQL",
-      desc: "Robust data transformation, cleaning, CTEs, and aggregation modeling.",
+      title: "Lakehouse Architecture",
+      desc: "Building Medallion (Bronze, Silver, Gold) architectures with Databricks and Delta Lake.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125" />
         </svg>
       )
     },
     {
-      title: "AWS Cloud Infrastructure",
-      desc: "Configuring EC2, S3 buckets, IAM roles, and secure VPC subnets.",
+      title: "AWS Data Engineering",
+      desc: "Architecting on S3, Glue, EMR, Redshift, Kinesis, Athena, Lambda, and CloudWatch.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
           <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.333-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" />
@@ -32,8 +32,8 @@ export default function About() {
       )
     },
     {
-      title: "Big Data & Storage",
-      desc: "Harnessing HDFS cluster storage, PySpark, and Spark SQL pipelines.",
+      title: "Dimensional Modelling",
+      desc: "Designing Star Schemas, SCD Type 1 & 2, and high-performance dbt transformations.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
           <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
@@ -41,20 +41,20 @@ export default function About() {
       )
     },
     {
-      title: "Data Warehousing",
-      desc: "Designing clean relational databases, schemas, and mysql storage.",
+      title: "Workflow Orchestration",
+      desc: "Automating end-to-end DAGs with Apache Airflow and AWS Step Functions.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17L17.25 21A1.79 1.79 0 0020 18.25l-5.83-5.83M11.42 15.17l2.42-2.42M11.42 15.17L3 6.75M13.84 12.75l2.42-2.42m0 0L20 6.75M16.26 10.33L18.25 3A1.79 1.79 0 0015.25 0l-7.33 2m8.34 8.33l-2.42 2.42" />
         </svg>
       )
     },
     {
-      title: "Workflow Automation",
-      desc: "Integrating Cron scheduling, Git tracking, TablePlus, and Jira workflows.",
+      title: "Data Quality & Optimization",
+      desc: "Enforcing Great Expectations validation, Catalyst tuning, and Redshift key optimization.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17L17.25 21A1.79 1.79 0 0020 18.25l-5.83-5.83M11.42 15.17l2.42-2.42M11.42 15.17L3 6.75M13.84 12.75l2.42-2.42m0 0L20 6.75M16.26 10.33L18.25 3A1.79 1.79 0 0015.25 0l-7.33 2m8.34 8.33l-2.42 2.42" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       )
     }
@@ -78,19 +78,19 @@ export default function About() {
           
           {/* Left Column: Summary */}
           <div className="w-full lg:w-1/2 flex flex-col justify-center">
-            <h2 className="text-2xl font-bold mb-4 text-[var(--text-color)] leading-tight">
-              Engineering efficient data pipelines and secure cloud environments.
+            <h2 className="text-2xl font-bold mb-5 text-[var(--text-color)] leading-tight">
+              Designing, building, and optimizing scalable data platforms on AWS.
             </h2>
-            <p className="text-[17px] leading-relaxed mb-6 text-[var(--text-secondary)]">
-              I'm Vasanth B, a Data Engineer with hands-on experience in SQL, Python, and AWS. I specialize in building batch ETL pipelines using Sqoop, Hive, and Apache Spark, focusing on transforming raw datasets into structured, highly queryable resources.
+            <p className="text-[16.5px] leading-relaxed mb-4 text-[var(--text-secondary)] font-medium">
+              Data Engineer with 3+ years of experience designing, building, and optimizing scalable ETL/ELT pipelines on AWS for the Banking and Healthcare domains. Proficient in PySpark, Apache Spark, and Apache Airflow, with strong experience in Lakehouse Architecture and Dimensional Modelling.
             </p>
-            <p className="text-[17px] leading-relaxed mb-8 text-[var(--text-secondary)]">
-              Recently, I deepened my practical expertise through an AWS Cloud Developer Internship at Scope Tech Software Solutions, configuring and deploying secure, isolated cloud architectures with EC2, S3, IAM, and custom VPC settings.
+            <p className="text-[16.5px] leading-relaxed mb-6 text-[var(--text-secondary)] font-medium">
+              Experienced in transitioning traditional batch processing workloads to near real-time data pipelines, improving query performance by over 80%, and implementing robust data quality frameworks. Skilled in Databricks, dbt, and Amazon Redshift to transform raw, high-volume data into trusted, analytics-ready datasets that support critical business decisions.
             </p>
             
-            <div className="inline-flex items-center gap-3.5 bg-[var(--accent-bg-soft)] text-[var(--accent-text)] px-6 py-3 rounded-2xl shadow-sm border border-[rgba(16,185,129,0.2)] self-start font-semibold text-[15px]">
-              <span className="text-xl">📍</span>
-              <span>Tamil Nadu, India | Open to Remote & Relocation</span>
+            <div className="inline-flex items-center gap-3 bg-[var(--accent-bg-soft)] text-[var(--accent-text)] px-5 py-2.5 rounded-2xl shadow-sm border border-[rgba(16,185,129,0.2)] self-start font-bold text-[14px]">
+              <span className="text-lg">📍</span>
+              <span>Chennai, India | Open to Remote & Relocation</span>
             </div>
           </div>
 

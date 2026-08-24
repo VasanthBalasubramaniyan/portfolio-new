@@ -20,10 +20,10 @@ export default function Navbar() {
   const navLinks = [
     { name: 'HOME', href: '#home' },
     { name: 'ABOUT', href: '#about' },
+    { name: 'SKILLS', href: '#skills' },
     { name: 'EXPERIENCE', href: '#experience' },
     { name: 'PROJECTS', href: '#projects' },
-    { name: 'SKILLS', href: '#skills' },
-    { name: 'CERTIFICATIONS', href: '#certifications' },
+    { name: 'ARCHITECTURE', href: '#architecture' },
     { name: 'EDUCATION', href: '#education' },
     { name: 'CONTACT', href: '#contact' }
   ];
