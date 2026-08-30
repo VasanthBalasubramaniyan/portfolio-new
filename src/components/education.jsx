@@ -1,70 +1,74 @@
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { GraduationCap, Award, Calendar, MapPin, CheckCircle2, BookOpen } from 'lucide-react'
 
 export default function Education() {
-  const [headerRef, isHeaderVisible] = useScrollAnimation(0.2);
-  const [contentRef, isContentVisible] = useScrollAnimation(0.15);
-
-  const educationList = [
-    {
-      degree: "Bachelor of Engineering (Computer Science and Engineering)",
-      institution: "Nehru Institute of Engineering and Technology, Coimbatore",
-      year: "May 2023",
-      icon: "🎓"
-    }
-  ];
-
   return (
-    <section id="education" className="py-28 px-4 bg-dots-pattern bg-[var(--bg-color)] text-[var(--text-color)] relative transition-colors duration-350 border-t border-[var(--surface-border)]">
-      
-      {/* Background glowing mesh orb */}
-      <div className="absolute top-[20%] left-[10%] w-72 h-72 bg-[rgba(16,185,129,0.03)] rounded-full blur-[110px] pointer-events-none"></div>
-
-      <div className="container">
+    <section id="education" className="py-24 px-4 bg-[#06090e] relative border-b border-emerald-500/10">
+      <div className="container mx-auto">
         
-        <div 
-          ref={headerRef}
-          className={`fade-in-up text-center mb-20 ${isHeaderVisible ? 'visible' : ''}`}
-        >
-          <h1 className="text-4xl font-extrabold glowing-title-center text-[var(--text-color)]">
-            Education
-          </h1>
+        {/* Section Header */}
+        <div className="mb-12 font-mono">
+          <div className="text-xs text-blue-400 font-semibold uppercase tracking-widest mb-2 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-blue-400"></span>
+            <span>~/education.edu</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight glowing-title">
+            Academic Education
+          </h2>
+          <p className="mt-3 text-slate-400 max-w-2xl font-sans text-sm">
+            Formal engineering foundation in Computer Science, Algorithm Design, and Relational Systems.
+          </p>
         </div>
 
-        <div 
-          ref={contentRef}
-          className={`max-w-4xl mx-auto flex flex-col gap-8 ${isContentVisible ? 'visible' : ''}`}
-        >
-          {educationList.map((edu, index) => (
-            <div 
-              key={index}
-              className={`glass-card rounded-2xl p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 fade-in-up delay-${(index * 100) + 100} ${
-                isContentVisible ? 'visible' : ''
-              }`}
-            >
-              <div className="flex items-center gap-6">
-                <div className="w-14 h-14 bg-[var(--accent-bg-soft)] rounded-xl flex items-center justify-center text-2xl flex-shrink-0 shadow-sm border border-[rgba(16,185,129,0.22)] text-[var(--accent-color)]">
-                  {edu.icon ? edu.icon : "📚"}
-                </div>
-                <div>
-                  <h2 className="text-xl md:text-2xl font-black text-[var(--text-color)] mb-1">
-                    {edu.degree || edu.level}
-                  </h2>
-                  <p className="text-[16px] md:text-lg font-bold text-[var(--accent-color)]">
-                    {edu.institution}
-                  </p>
-
-                </div>
+        {/* Education Card */}
+        <div className="ide-card bg-[#090d16] border border-blue-500/20 p-6 max-w-3xl">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-white/10 pb-5 mb-5 font-mono">
+            <div className="flex items-center gap-3">
+              <div className="p-3 rounded-xl bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                <GraduationCap size={28} />
               </div>
-              
-              <div className="md:text-right mt-4 md:mt-0 flex-shrink-0 self-start md:self-auto">
-                <span className="bg-[var(--accent-bg-soft)] border border-[rgba(16,185,129,0.25)] text-[var(--accent-color)] px-4.5 py-2 rounded-xl font-bold text-sm shadow-sm inline-block font-mono">
-                  {edu.year}
-                </span>
+              <div>
+                <h3 className="text-xl font-bold text-white">B.E. Computer Science & Engineering</h3>
+                <div className="text-sm text-cyan-400 font-semibold mt-0.5">
+                  Nehru Institute of Engineering and Technology
+                </div>
               </div>
             </div>
-          ))}
+
+            <div className="flex flex-col items-start sm:items-end text-xs text-slate-400">
+              <span className="flex items-center gap-1 font-semibold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded border border-emerald-500/20">
+                <Calendar size={12} /> May 2023 Graduation
+              </span>
+              <span className="flex items-center gap-1 mt-1 text-slate-400">
+                <MapPin size={12} /> Coimbatore, India
+              </span>
+            </div>
+          </div>
+
+          <div className="space-y-4 font-sans text-xs text-slate-300">
+            <div className="text-xs font-mono text-slate-400 uppercase font-bold tracking-wider flex items-center gap-2">
+              <BookOpen size={14} className="text-blue-400" />
+              <span>Core Academic Coursework & Foundations:</span>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 font-mono text-xs">
+              {[
+                'Data Structures & Algorithms',
+                'Relational Database Management (RDBMS)',
+                'Operating Systems & Unix Shell',
+                'Computer Networks & Protocols',
+                'Software Engineering & OOP',
+                'Distributed Computing Concepts'
+              ].map((subject) => (
+                <div key={subject} className="bg-[#0b0f19] p-3 rounded border border-white/5 flex items-center gap-2 text-slate-200">
+                  <CheckCircle2 size={13} className="text-blue-400 shrink-0" />
+                  <span>{subject}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
+
       </div>
     </section>
-  );
+  )
 }

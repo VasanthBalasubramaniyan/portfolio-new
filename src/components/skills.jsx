@@ -1,152 +1,150 @@
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useState } from 'react'
+import { Search, Cpu, Cloud, Database, Code, GitBranch, PieChart, Layers } from 'lucide-react'
 
 export default function Skills() {
-  const [headerRef, isHeaderVisible] = useScrollAnimation(0.2);
-  const [cardsRef, isCardsVisible] = useScrollAnimation(0.15);
+  const [searchTerm, setSearchTerm] = useState('')
+  const [activeCategory, setActiveCategory] = useState('ALL')
 
-  const categories = [
+  const skillCategories = [
     {
-      title: "Cloud & Data Platforms",
-      items: ["AWS S3", "AWS Glue", "AWS EMR", "Amazon Redshift", "Amazon Kinesis", "AWS Athena", "AWS Lambda", "Databricks", "Delta Lake", "Lakehouse Architecture", "Medallion Architecture"],
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z" />
-        </svg>
-      )
+      category: 'Cloud & Platforms',
+      icon: Cloud,
+      color: 'text-cyan-400',
+      skills: ['AWS S3', 'AWS Glue', 'AWS EMR', 'Amazon Redshift', 'AWS Kinesis', 'AWS Athena', 'AWS Lambda', 'Databricks', 'Delta Lake', 'Medallion Architecture']
     },
     {
-      title: "Programming & Querying",
-      items: ["Python", "PySpark", "Pandas", "PyTest", "SQL", "CTEs", "Window Functions", "Stored Procedures", "Query Optimization", "Bash/Shell Scripting"],
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
-        </svg>
-      )
+      category: 'Programming & Query',
+      icon: Code,
+      color: 'text-emerald-400',
+      skills: ['Python', 'PySpark', 'Pandas', 'PyTest', 'SQL', 'Window Functions', 'Stored Procedures', 'Bash']
     },
     {
-      title: "Data Engineering & Big Data",
-      items: ["Apache Spark", "Spark SQL", "ETL/ELT Pipeline Development", "Batch Processing", "Streaming Processing", "Change Data Capture (CDC)", "Data Ingestion", "Data Partitioning"],
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z" />
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z" />
-        </svg>
-      )
+      category: 'Data Engineering & Streaming',
+      icon: Cpu,
+      color: 'text-amber-400',
+      skills: ['Apache Spark', 'Spark SQL', 'ETL / ELT Pipelines', 'Batch Processing', 'Near Real-time Streams', 'Change Data Capture (CDC)', 'Partition Pruning', 'Catalyst Tuning']
     },
     {
-      title: "Data Modelling & Warehousing",
-      items: ["Dimensional Modeling", "Star Schema", "Slowly Changing Dimensions (SCD Type 1 & 2)", "dbt", "Query Performance Tuning"],
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5m.75-9 3-3 2.148 2.148A12.061 12.061 0 0 1 16.5 7.605" />
-        </svg>
-      )
+      category: 'Modelling & Data Quality',
+      icon: Layers,
+      color: 'text-purple-400',
+      skills: ['Dimensional Modeling', 'Star Schema', 'SCD Type 1 & 2', 'dbt (data build tool)', 'Query Tuning & WLM', 'Great Expectations']
     },
     {
-      title: "Databases",
-      items: ["PostgreSQL", "MySQL", "Microsoft SQL Server"],
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
-        </svg>
-      )
+      category: 'Databases',
+      icon: Database,
+      color: 'text-blue-400',
+      skills: ['PostgreSQL', 'MySQL', 'SQL Server', 'Delta Lake', 'Snowflake']
     },
     {
-      title: "Workflow Orchestration",
-      items: ["Apache Airflow", "AWS Step Functions"],
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-        </svg>
-      )
+      category: 'Orchestration & DevOps',
+      icon: GitBranch,
+      color: 'text-rose-400',
+      skills: ['Apache Airflow', 'AWS Step Functions', 'AWS CloudWatch', 'Git', 'GitHub Actions', 'Docker', 'AWS CodePipeline']
     },
     {
-      title: "Data Quality & Monitoring",
-      items: ["Great Expectations", "Data Profiling", "Data Validation", "Monitoring & Logging", "Amazon CloudWatch"],
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-        </svg>
-      )
-    },
-    {
-      title: "DevOps & CI/CD",
-      items: ["Git", "GitHub", "Docker", "GitHub Actions", "AWS CodePipeline"],
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M14.25 9.75 16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z" />
-        </svg>
-      )
-    },
-    {
-      title: "Analytics & Visualization",
-      items: ["Power BI", "DAX", "Jupyter Notebook"],
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A2.25 2.25 0 0 1 3 18.75v-5.625ZM10.5 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a2.25 2.25 0 0 1-1.125-1.125V8.625ZM18 4.125c0-.621.504-1.125 1.125-1.125h2.25C21.996 3 22.5 3.504 22.5 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25A2.25 2.25 0 0 1 18 19.875V4.125Z" />
-        </svg>
-      )
-    },
-    {
-      title: "Data Formats & Methodologies",
-      items: ["Parquet", "ORC", "Avro", "Agile/Scrum"],
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5A3.375 3.375 0 0 0 10.125 2.25H8.25m2.25 0H5.625A2.25 2.25 0 0 0 3.375 4.5v15a2.25 2.25 0 0 0 2.25 2.25h13.5a2.25 2.25 0 0 0 2.25-2.25V14.25" />
-        </svg>
-      )
+      category: 'Analytics & Data Formats',
+      icon: PieChart,
+      color: 'text-indigo-400',
+      skills: ['Power BI', 'DAX', 'Jupyter Notebooks', 'Parquet', 'ORC', 'Avro']
     }
-  ];
+  ]
+
+  const categories = ['ALL', ...skillCategories.map(c => c.category)]
+
+  const filteredCategories = skillCategories.map(cat => {
+    const matchingSkills = cat.skills.filter(skill =>
+      skill.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    return { ...cat, skills: matchingSkills }
+  }).filter(cat =>
+    (activeCategory === 'ALL' || cat.category === activeCategory) && cat.skills.length > 0
+  )
 
   return (
-    <section id="skills" className="py-28 px-4 bg-dots-pattern bg-[var(--bg-color)] relative text-[var(--text-color)] transition-colors duration-350 border-b border-[var(--surface-border)]">
-      
-      {/* Soft neon orbs in background */}
-      <div className="absolute top-[30%] left-[10%] w-72 h-72 bg-[rgba(16,185,129,0.03)] rounded-full blur-[110px] pointer-events-none"></div>
-
-      <div className="container">
+    <section id="skills" className="py-12 sm:py-20 px-3 sm:px-4 bg-[#06090e] bg-grid-pattern relative border-b border-emerald-500/10">
+      <div className="container mx-auto">
         
-        <div 
-          ref={headerRef}
-          className={`fade-in-up text-center mb-20 ${isHeaderVisible ? 'visible' : ''}`}
-        >
-          <h1 className="text-4xl font-extrabold glowing-title-center text-[var(--text-color)]">
-            Technical Expertise
-          </h1>
+        {/* Section Header */}
+        <div className="mb-8 sm:mb-12 font-mono">
+          <div className="text-xs text-cyan-400 font-semibold uppercase tracking-widest mb-2 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
+            <span>~/skills.matrix</span>
+          </div>
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight glowing-title">
+            Technical Stack & Skill Matrix
+          </h2>
+          <p className="mt-3 text-slate-400 max-w-2xl font-sans text-xs sm:text-sm leading-relaxed">
+            Categorized technical capabilities spanning cloud infrastructure, big data processing, data modeling, and orchestration.
+          </p>
         </div>
 
-        <div 
-          ref={cardsRef}
-          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ${isCardsVisible ? 'visible' : ''}`}
-        >
-          {categories.map((category, index) => (
-            <div 
-              key={category.title}
-              className={`glass-card rounded-2xl p-8 fade-in-up delay-${(index * 80) + 100} ${
-                isCardsVisible ? 'visible' : ''
-              }`}
-            >
-              <div className="flex items-center gap-4 mb-6 border-b border-[var(--surface-border)] pb-4.5">
-                <div className="p-3 bg-[var(--accent-bg-soft)] text-[var(--accent-color)] border border-[rgba(16,185,129,0.18)] rounded-xl shadow-sm">
-                  {category.icon}
-                </div>
-                <h2 className="text-[17px] font-black text-[var(--text-color)] tracking-wide uppercase leading-tight">{category.title}</h2>
-              </div>
-              
-              <div className="flex flex-wrap gap-2.5">
-                {category.items.map((item, idx) => (
-                  <span 
-                    key={idx} 
-                    className="px-4 py-2 bg-[var(--surface-color)] text-[var(--text-secondary)] border border-[var(--surface-border)] rounded-xl text-[14px] font-semibold hover:border-[var(--accent-color)] hover:text-[var(--accent-color)] hover:bg-[var(--accent-bg-soft)] hover:shadow-[0_0_12px_rgba(16,185,129,0.15)] transition-all duration-300 cursor-default"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
+        {/* Filter & Search Bar */}
+        <div className="ide-card bg-[#090d16] p-3.5 sm:p-4 mb-6 sm:mb-8 border border-emerald-500/20 font-mono text-xs space-y-4">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+            
+            {/* SQL Search Input with 44px height */}
+            <div className="relative w-full sm:w-80">
+              <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500" />
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder="Search skills (e.g. PySpark, Airflow)..."
+                className="w-full bg-[#0b0f19] border border-white/10 rounded-lg pl-9 pr-3 py-2.5 min-h-[44px] text-white text-[12px] placeholder-slate-500 focus:outline-none focus:border-emerald-500/50"
+              />
             </div>
-          ))}
+
+            {/* Category Filter Pills with 44px tap target */}
+            <div className="flex items-center gap-1.5 overflow-x-auto w-full sm:w-auto no-scrollbar py-1">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`px-3 py-2 min-h-[44px] rounded-lg whitespace-nowrap transition-all text-[11px] font-mono cursor-pointer flex items-center justify-center ${
+                    activeCategory === cat
+                      ? 'bg-emerald-500 text-black font-bold shadow-md shadow-emerald-500/20'
+                      : 'bg-[#0b0f19] text-slate-400 hover:text-white border border-white/5'
+                  }`}
+                >
+                  {cat === 'ALL' ? 'SELECT * FROM skills' : cat}
+                </button>
+              ))}
+            </div>
+
+          </div>
         </div>
+
+        {/* Skills Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          {filteredCategories.map((group) => {
+            const Icon = group.icon
+            return (
+              <div key={group.category} className="ide-card bg-[#090d16] border border-white/10 p-4 sm:p-5 hover:border-emerald-500/30 transition-all">
+                <div className="flex items-center gap-2.5 border-b border-white/10 pb-3 mb-4 font-mono">
+                  <Icon size={16} className={group.color} />
+                  <h3 className="text-xs sm:text-sm font-bold text-white">{group.category}</h3>
+                  <span className="ml-auto text-[10px] text-slate-500 bg-[#0b0f19] px-2 py-0.5 rounded">
+                    {group.skills.length} items
+                  </span>
+                </div>
+
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                  {group.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="badge-tech font-mono text-[11px] sm:text-xs bg-[#0b0f19] text-slate-200 border border-white/10 hover:border-emerald-500/40 hover:text-emerald-300 transition-all"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
       </div>
     </section>
-  );
+  )
 }

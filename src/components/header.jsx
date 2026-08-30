@@ -1,148 +1,270 @@
-import { useEffect, useState } from 'react';
-import profileImg from '../assets/img/Me.JPG';
+import { useState, useRef, useEffect } from 'react'
+import { Terminal, Play, FileText, Mail, Phone, MapPin, CheckCircle2, ChevronRight, Sparkles, Copy, Check } from 'lucide-react'
 
-export default function Header({ resumeLink }) {
-  const [isVisible, setIsVisible] = useState(false);
+const LinkedInIcon = ({ size = 14, className = "" }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+  </svg>
+)
+
+export default function Header({ resumeLink = '/resume/Vasanth - Resume.pdf' }) {
+  const [copied, setCopied] = useState(false)
+  const [terminalInput, setTerminalInput] = useState('')
+  const [terminalLogs, setTerminalLogs] = useState([
+    { type: 'system', content: 'Vasanth Data Engineering CLI v3.4.1 (x86_64-aws-linux)' },
+    { type: 'system', content: 'Type "help" or click command buttons below to interact.' },
+    { type: 'prompt', command: 'cat bio.txt', output: 'Data Engineer with 3+ years experience building ETL/ELT pipelines across Banking & Healthcare data (500GB–1TB/day).' }
+  ])
+
+  const terminalEndRef = useRef(null)
 
   useEffect(() => {
-    setIsVisible(true);
-  }, []);
+    terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [terminalLogs])
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText('get.vasanth.b@gmail.com')
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
+  const runCommand = (cmd) => {
+    const cleanCmd = cmd.trim().toLowerCase()
+    let response = ''
+
+    switch (cleanCmd) {
+      case 'help':
+        response = `Available Commands:
+  • cat bio.txt     - Career overview & metrics
+  • run pipeline   - Execute Medallion ETL simulation
+  • select skills  - View key technical stack
+  • contact        - Direct communication info
+  • clear          - Clear terminal logs`
+        break
+      case 'cat bio.txt':
+      case 'cat bio':
+        response = `Vasanth B | Data Engineer (3+ Years Experience)
+Location: Chennai, India
+Core Focus: Scalable ETL/ELT, Medallion Lakehouses, Batch & Near Real-time Streams.
+Domains: Banking & Healthcare
+Tech: PySpark, AWS Glue, Databricks, Delta Lake, Airflow, dbt, Redshift, Kinesis.`
+        break
+      case 'run pipeline':
+      case 'pipeline':
+        response = `[10:14:02] [INFO] Initializing Kinesis CDC Stream Ingestion...
+[10:14:03] [RAW] S3 Ingest: 850,000 JSON records buffered.
+[10:14:04] [BRONZE] PySpark Glue Job writing Delta raw schema... Done (2.4s)
+[10:14:05] [SILVER] SCD Type 2 CDC deduplication applied... Done (1.8s)
+[10:14:06] [GOLD] dbt models refreshed & Great Expectations passed (100% assertions).
+[10:14:07] [SUCCESS] Athena / Redshift refreshed. Sub-minute latency achieved! ✨`
+        break
+      case 'select skills':
+      case 'skills':
+        response = `✦ Cloud/Lakehouse: AWS S3, Glue, EMR, Databricks, Delta Lake, Redshift, Kinesis
+✦ Programming: Python, PySpark, Pandas, SQL (CTEs, Window Funcs, Stored Procs), Bash
+✦ Orchestration & Quality: Apache Airflow, Step Functions, dbt, Great Expectations
+✦ DevOps & BI: Docker, GitHub Actions, CodePipeline, Power BI`
+        break
+      case 'contact':
+        response = `📧 Email: get.vasanth.b@gmail.com
+📞 Phone: +91-9566678426
+🔗 LinkedIn: linkedin.com/in/vasanthbalasubramaniyan
+📍 Location: Chennai, India`
+        break
+      case 'clear':
+        setTerminalLogs([])
+        return
+      default:
+        response = `Command not recognized: "${cleanCmd}". Type "help" for valid commands.`
+    }
+
+    setTerminalLogs(prev => [
+      ...prev,
+      { type: 'prompt', command: cmd, output: response }
+    ])
+    setTerminalInput('')
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (terminalInput.trim()) {
+      runCommand(terminalInput)
+    }
+  }
 
   return (
-    <section id="home" className="min-h-screen relative flex items-center justify-center pt-24 pb-12 overflow-hidden bg-[var(--bg-color)] transition-colors duration-350">
-      {/* Premium Floating Ambient Glowing Orbs */}
-      <div className="orb-layer">
-        <div className="floating-orb w-64 h-64 bg-[#10b981] top-[15%] left-[5%] animate-[float-orb_20s_infinite_ease-in-out_alternate]"></div>
-        <div className="floating-orb w-80 h-80 bg-[#047857] bottom-[15%] right-[5%] animate-[float-orb_25s_infinite_ease-in-out_alternate_delay-2s]" style={{ animationDelay: '-5s' }}></div>
-        <div className="floating-orb w-72 h-72 bg-[#34d399] top-[40%] left-[30%] animate-[float-orb_22s_infinite_ease-in-out_alternate_delay-4s]" style={{ animationDelay: '-12s' }}></div>
-      </div>
+    <section id="home" className="pt-28 sm:pt-36 pb-12 sm:pb-16 px-3 sm:px-4 bg-[#06090e] bg-grid-pattern relative border-b border-emerald-500/10 min-h-screen flex flex-col justify-center">
+      {/* Ambient background glow */}
+      <div className="absolute top-1/4 left-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none"></div>
 
-      <div className="container relative z-10 flex flex-col md:flex-row items-center gap-12 w-full">
+      <div className="container mx-auto">
         
-        {/* Left 40%: Profile Image */}
-        <div className={`w-full md:w-[40%] flex justify-center md:justify-end transition-all duration-1000 transform ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'}`}>
-          <div className="relative group">
-            {/* Spinning Dashed Green Border Frame */}
-            <div className="absolute w-[306px] h-[306px] spin-dashed-border top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
-            {/* Ambient shadow glow */}
-            <div className="absolute w-[290px] h-[290px] rounded-full bg-gradient-to-tr from-[#10b981] to-[#34d399] opacity-20 blur-xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
-            
-            <img 
-              src={profileImg} 
-              alt="Vasanth B - Data Engineer" 
-              className="relative z-10 w-[280px] h-[280px] rounded-full object-cover object-top border-4 border-[var(--accent-color)] shadow-[0_10px_40px_-10px_rgba(16,185,129,0.35)] transition-all duration-500 group-hover:scale-[1.03]"
-            />
-          </div>
-        </div>
-
-        {/* Right 60%: Content */}
-        <div className={`w-full md:w-[60%] flex flex-col items-center md:items-start text-center md:text-left transition-all duration-1000 delay-200 transform ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'}`}>
+        {/* Intro Hero Header (Single focal point layout) */}
+        <div className="max-w-4xl space-y-4">
           
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--accent-bg-soft)] border border-[rgba(16,185,129,0.2)] text-[var(--accent-text)] text-[12px] font-bold tracking-[0.15em] uppercase mb-4 shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-[#10b981] animate-ping"></span>
-            Available for Opportunities
+          {/* 1. Eyebrow label */}
+          <div className="font-mono text-xs sm:text-sm text-cyan-400 font-semibold tracking-wider">
+            // data engineer
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-extrabold text-[var(--text-color)] mb-3 tracking-tight leading-none">
-            VASANTH B
+          {/* 2. Large Name / Heading (~44px desktop / ~32px mobile) */}
+          <h1 className="font-mono text-[28px] xs:text-[32px] sm:text-[44px] font-extrabold text-white tracking-tight leading-tight">
+            Vasanth B
           </h1>
-          
-          <h2 className="text-2xl md:text-3xl font-extrabold text-[var(--accent-color)] mb-4 flex flex-wrap items-center justify-center md:justify-start gap-x-2 gap-y-1">
-            <span>Data Engineer</span>
-          </h2>
 
-          <p className="text-lg md:text-xl font-semibold text-[var(--text-color)] mb-4 max-w-2xl leading-snug">
-            Building scalable, reliable, and analytics-ready data platforms.
+          {/* 3. One-line Tagline (max ~52 characters wide) */}
+          <p className="text-slate-300 text-sm sm:text-lg font-sans max-w-[52ch] leading-relaxed">
+            Designing ETL/ELT pipelines & Medallion lakehouses.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 mb-6">
-            {["AWS", "PySpark", "Apache Spark", "Databricks", "Apache Airflow", "SQL"].map((badge, idx) => (
-              <span key={idx} className="px-3 py-1 bg-[var(--accent-bg-soft)] text-[var(--accent-text)] border border-[rgba(16,185,129,0.25)] rounded-lg text-[13px] font-bold tracking-wide">
-                {badge}
-              </span>
-            ))}
-          </div>
-
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-[14px] text-[var(--text-muted)] mb-8 font-medium">
-            <span className="flex items-center gap-1.5">
-              <span className="text-[var(--accent-color)]">📍</span> Chennai, India
+          {/* 4. Compact Meta Row */}
+          <div className="font-mono text-[12px] sm:text-xs text-slate-400 flex flex-wrap items-center gap-1.5 sm:gap-2 pt-1 leading-normal">
+            <span className="text-slate-300 flex items-center gap-1">
+              <MapPin size={12} className="text-cyan-400 shrink-0" /> Chennai, India
             </span>
-            <span className="hidden md:inline">•</span>
-            <a href="mailto:get.vasanth.b@gmail.com" className="flex items-center gap-1.5 hover:text-[var(--accent-color)] transition-colors">
-              <span className="text-[var(--accent-color)]">✉️</span> get.vasanth.b@gmail.com
-            </a>
-            <span className="hidden md:inline">•</span>
-            <a href="tel:+919566678426" className="flex items-center gap-1.5 hover:text-[var(--accent-color)] transition-colors">
-              <span className="text-[var(--accent-color)]">📞</span> +91-9566678426
-            </a>
+            <span className="text-emerald-500 font-bold">·</span>
+            <span className="text-slate-300">3+ Years Experience</span>
+            <span className="text-emerald-500 font-bold">·</span>
+            <span className="text-emerald-400 font-semibold">Open for Remote & Relocation</span>
           </div>
 
-          <div className="flex flex-wrap gap-4 justify-center md:justify-start mb-8">
-            <a 
-              href="#projects" 
-              className="btn-glowing-green px-8 py-3.5 rounded-lg font-bold tracking-wide flex items-center gap-2.5 transition-all shadow-md"
+          {/* Quick Action Buttons with 44px min tap targets */}
+          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-3 font-mono text-xs">
+            <a
+              href="#experience"
+              className="px-4 sm:px-5 py-2.5 min-h-[44px] rounded-lg bg-emerald-500 hover:bg-emerald-400 text-black font-bold flex items-center gap-2 shadow-lg shadow-emerald-500/20 transition-all hover:scale-105"
             >
-              View My Work
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-              </svg>
+              <Play size={13} fill="currentColor" />
+              <span>VIEW EXPERIENCE</span>
             </a>
-            <a 
-              href={resumeLink} 
-              download 
-              className="btn-outline-green px-8 py-3.5 rounded-lg font-bold tracking-wide flex items-center gap-2.5 transition-all"
+
+            <a
+              href={resumeLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2.5 min-h-[44px] rounded-lg bg-[#0b0f19] text-emerald-400 border border-emerald-500/30 hover:border-emerald-500/60 font-semibold flex items-center gap-2 transition-all"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-              </svg>
-              Download Resume
+              <FileText size={13} />
+              <span>VIEW RESUME</span>
             </a>
+
+            <button
+              onClick={handleCopyEmail}
+              className="px-3.5 py-2.5 min-h-[44px] rounded-lg bg-[#0b0f19] text-slate-300 border border-white/10 hover:border-white/20 flex items-center gap-2 transition-all cursor-pointer"
+              title="Copy Email Address"
+            >
+              {copied ? <Check size={13} className="text-emerald-400" /> : <Copy size={13} />}
+              <span>{copied ? 'COPIED' : 'get.vasanth.b@gmail.com'}</span>
+            </button>
           </div>
 
-          <div className="flex gap-4">
+          {/* Direct Contact Bar */}
+          <div className="pt-2 flex flex-wrap items-center gap-4 sm:gap-5 text-[12px] sm:text-xs text-slate-400 font-mono">
+            <a href="mailto:get.vasanth.b@gmail.com" className="flex items-center gap-1.5 hover:text-emerald-400 transition-colors min-h-[36px]">
+              <Mail size={13} className="text-emerald-400 shrink-0" />
+              <span className="truncate">get.vasanth.b@gmail.com</span>
+            </a>
+            <a href="tel:+919566678426" className="flex items-center gap-1.5 hover:text-emerald-400 transition-colors min-h-[36px]">
+              <Phone size={13} className="text-cyan-400 shrink-0" />
+              <span>+91-9566678426</span>
+            </a>
             <a 
               href="https://linkedin.com/in/vasanthbalasubramaniyan" 
               target="_blank" 
-              rel="noopener noreferrer" 
-              className="w-11 h-11 bg-[var(--surface-color)] border border-[var(--surface-border)] rounded-xl flex items-center justify-center text-[var(--text-color)] hover:text-white hover:bg-[var(--accent-color)] hover:border-[var(--accent-color)] hover:shadow-[0_0_15px_rgba(16,185,129,0.4)] transition-all duration-300 cursor-pointer"
-              title="LinkedIn"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 hover:text-emerald-400 transition-colors min-h-[36px]"
             >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-              </svg>
-            </a>
-            <a 
-              href="https://github.com/VasanthBalasubramaniyan/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="w-11 h-11 bg-[var(--surface-color)] border border-[var(--surface-border)] rounded-xl flex items-center justify-center text-[var(--text-color)] hover:text-white hover:bg-[var(--accent-color)] hover:border-[var(--accent-color)] hover:shadow-[0_0_15px_rgba(16,185,129,0.4)] transition-all duration-300 cursor-pointer"
-              title="GitHub"
-            >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-              </svg>
-            </a>
-            <a 
-              href="mailto:get.vasanth.b@gmail.com" 
-              className="w-11 h-11 bg-[var(--surface-color)] border border-[var(--surface-border)] rounded-xl flex items-center justify-center text-[var(--text-color)] hover:text-white hover:bg-[var(--accent-color)] hover:border-[var(--accent-color)] hover:shadow-[0_0_15px_rgba(16,185,129,0.4)] transition-all duration-300 cursor-pointer"
-              title="Email"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
+              <LinkedInIcon size={13} className="text-purple-400 shrink-0" />
+              <span>LinkedIn</span>
             </a>
           </div>
-        </div>
-      </div>
 
-      {/* Scroll Down Arrow */}
-      <div className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-opacity duration-1000 delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-        <a href="#about" aria-label="Scroll to About section" className="text-[var(--accent-color)] hover:text-[var(--text-color)] transition-colors block animate-bounce-down cursor-pointer">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
-          </svg>
-        </a>
+        </div>
+
+        {/* 5. Terminal Window (Scales gracefully down to 360px wide) */}
+        <div className="mt-8 sm:mt-10 max-w-4xl">
+          <div className="ide-card bg-[#090d16] border border-emerald-500/20 shadow-2xl">
+            
+            {/* Terminal Window Bar */}
+            <div className="ide-header bg-[#0b0f19] px-3 sm:px-4 py-2 flex items-center justify-between border-b border-emerald-500/10">
+              <div className="flex items-center gap-2">
+                <div className="ide-dots">
+                  <span className="ide-dot ide-dot-red"></span>
+                  <span className="ide-dot ide-dot-yellow"></span>
+                  <span className="ide-dot ide-dot-green"></span>
+                </div>
+                <span className="text-[11px] sm:text-xs font-mono text-slate-400 ml-1.5 sm:ml-2 flex items-center gap-1.5">
+                  <Terminal size={12} className="text-emerald-400" />
+                  <span>vasanth-cli -- bash</span>
+                </span>
+              </div>
+              <div className="flex items-center gap-1 text-[10px] sm:text-[11px] text-slate-500 font-mono">
+                <span>UTF-8</span>
+              </div>
+            </div>
+
+            {/* Terminal Screen Body */}
+            <div className="p-3 sm:p-4 font-mono text-[11px] sm:text-xs text-slate-200 h-72 sm:h-80 overflow-y-auto space-y-2.5 bg-[#080c14] leading-relaxed">
+              {terminalLogs.map((log, index) => (
+                <div key={index} className="space-y-1">
+                  {log.type === 'system' && (
+                    <div className="text-slate-500 italic text-[10px] sm:text-[11px]">// {log.content}</div>
+                  )}
+                  {log.type === 'prompt' && (
+                    <div>
+                      <div className="flex items-center gap-1.5 text-emerald-400 flex-wrap">
+                        <span className="text-cyan-400 font-bold">vasanth@data-lake</span>
+                        <span className="text-slate-500">:</span>
+                        <span className="text-purple-400">~$</span>
+                        <span className="text-white font-semibold">{log.command}</span>
+                      </div>
+                      {log.output && (
+                        <pre className="mt-1.5 text-slate-300 text-[10px] sm:text-[11px] leading-relaxed whitespace-pre-wrap pl-2.5 sm:pl-3 border-l-2 border-emerald-500/30 overflow-x-auto">
+                          {log.output}
+                        </pre>
+                      )}
+                    </div>
+                  )}
+                </div>
+              ))}
+              <div ref={terminalEndRef} />
+            </div>
+
+            {/* Command Presets Toolbar with 44px touch height */}
+            <div className="px-2.5 sm:px-3 py-2 bg-[#0b0f19] border-t border-emerald-500/10 flex items-center gap-1.5 overflow-x-auto no-scrollbar min-h-[44px]">
+              <span className="text-[10px] text-slate-500 font-mono uppercase mr-1 shrink-0">Presets:</span>
+              {['help', 'cat bio', 'run pipeline', 'skills', 'contact', 'clear'].map((cmd) => (
+                <button
+                  key={cmd}
+                  onClick={() => runCommand(cmd)}
+                  className="px-2.5 py-1.5 min-h-[36px] rounded bg-white/5 hover:bg-emerald-500/20 text-slate-300 hover:text-emerald-300 text-[11px] font-mono border border-white/5 transition-all whitespace-nowrap cursor-pointer flex items-center justify-center shrink-0"
+                >
+                  ${cmd}
+                </button>
+              ))}
+            </div>
+
+            {/* Terminal Input Form */}
+            <form onSubmit={handleSubmit} className="p-2 sm:p-2.5 bg-[#070a10] border-t border-emerald-500/10 flex items-center gap-2 font-mono text-xs min-h-[44px]">
+              <span className="text-emerald-400 font-bold">$</span>
+              <input
+                type="text"
+                value={terminalInput}
+                onChange={(e) => setTerminalInput(e.target.value)}
+                placeholder="Type command..."
+                className="flex-1 bg-transparent border-none text-white focus:outline-none placeholder-slate-600 text-[12px]"
+              />
+              <button type="submit" className="p-2 text-slate-500 hover:text-emerald-400 cursor-pointer min-h-[44px] min-w-[44px] flex items-center justify-center">
+                <ChevronRight size={18} />
+              </button>
+            </form>
+
+          </div>
+        </div>
+
       </div>
     </section>
-  );
+  )
 }

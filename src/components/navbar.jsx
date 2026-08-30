@@ -1,150 +1,196 @@
 import { useState, useEffect } from 'react'
-import { useTheme } from '../context/ThemeContext'
+import { FileCode, Cpu, Terminal as TerminalIcon, FileText, Menu, X, ArrowUpRight, ShieldCheck } from 'lucide-react'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const { theme, toggleTheme } = useTheme()
-  
+  const [activeSection, setActiveSection] = useState('overview.py')
+
   const closeMenu = () => setIsOpen(false)
 
-  // Handle scroll effect for navbar
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40)
+
+      const sections = [
+        { id: 'home', tab: 'overview.py' },
+        { id: 'experience', tab: 'experience.json' },
+        { id: 'skills', tab: 'skills.matrix' },
+        { id: 'education', tab: 'education.edu' },
+        { id: 'contact', tab: 'terminal.sh' },
+      ]
+
+      const scrollPosition = window.scrollY + 200
+
+      // Bottom of page check
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50) {
+        setActiveSection('terminal.sh')
+        return
+      }
+
+      for (const section of sections) {
+        const el = document.getElementById(section.id)
+        if (el) {
+          const top = el.offsetTop
+          const height = el.offsetHeight
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            setActiveSection(section.tab)
+            break
+          }
+        }
+      }
     }
+
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const navLinks = [
-    { name: 'HOME', href: '#home' },
-    { name: 'ABOUT', href: '#about' },
-    { name: 'SKILLS', href: '#skills' },
-    { name: 'EXPERIENCE', href: '#experience' },
-    { name: 'PROJECTS', href: '#projects' },
-    { name: 'ARCHITECTURE', href: '#architecture' },
-    { name: 'EDUCATION', href: '#education' },
-    { name: 'CONTACT', href: '#contact' }
-  ];
+  const tabs = [
+    { name: 'overview.py', label: 'Overview', href: '#home', icon: FileCode, color: 'text-emerald-400' },
+    { name: 'experience.json', label: 'Experience', href: '#experience', icon: Cpu, color: 'text-purple-400' },
+    { name: 'skills.matrix', label: 'Skills Matrix', href: '#skills', icon: FileText, color: 'text-cyan-400' },
+    { name: 'education.edu', label: 'Education', href: '#education', icon: ShieldCheck, color: 'text-blue-400' },
+    { name: 'terminal.sh', label: 'Contact CLI', href: '#contact', icon: TerminalIcon, color: 'text-emerald-400' },
+  ]
 
   return (
     <>
-      <div className={`w-full fixed top-0 z-[200] transition-all duration-300 ${
+      <header className={`w-full fixed top-0 z-[200] transition-all duration-300 ${
         scrolled 
-          ? 'py-3 bg-[var(--nav-bg)] backdrop-blur-md border-b border-[rgba(16,185,129,0.15)] shadow-md' 
-          : 'py-5 bg-transparent border-b border-transparent'
+          ? 'bg-[#080c14]/95 backdrop-blur-md border-b border-emerald-500/20 shadow-xl' 
+          : 'bg-[#06090e]/90 border-b border-white/5'
       }`}>
-        <div className="container mx-auto px-6 flex justify-between items-center">
-          <div>
-            <a href="#home" className="text-2xl font-extrabold tracking-widest transition-all duration-300 hover:opacity-90 flex items-center gap-2">
-              <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#34d399] to-[#10b981] flex items-center justify-center text-white text-[17px] font-black shadow-[0_0_12px_rgba(16,185,129,0.3)]">V</span>
-              <span className="gradient-text-green font-black">VASANTH</span>
+        {/* Top Window Title Bar */}
+        <div className="bg-[#0b0f19] border-b border-white/5 px-3 sm:px-4 py-1.5 flex items-center justify-between text-[11px] sm:text-xs font-mono text-slate-400">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="flex items-center gap-1.5">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+            </div>
+            <span className="hidden sm:inline text-slate-500">|</span>
+            <span className="text-slate-300 font-semibold tracking-wide flex items-center gap-1.5 truncate max-w-[200px] sm:max-w-none">
+              <span className="text-emerald-400 font-bold">vasanth-b@data-platform</span>
+              <span className="text-slate-500">:</span>
+              <span className="text-cyan-400 hidden xs:inline">~/data-engine</span>
+              <span className="text-[10px] text-slate-500 bg-slate-800/80 px-1.5 py-0.5 rounded hidden md:inline">WSL: Ubuntu</span>
+            </span>
+          </div>
+
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="hidden md:flex items-center gap-2 text-[11px] text-emerald-400/90 font-mono">
+              <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+              <span>ETL STATUS: ONLINE</span>
+            </div>
+            <a 
+              href="/resume/Vasanth - Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-2.5 py-1.5 rounded bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-mono text-[11px] transition-all flex items-center gap-1 min-h-[36px] sm:min-h-[44px]"
+            >
+              <span>export_resume.sh</span>
+              <ArrowUpRight size={12} />
             </a>
           </div>
-          <div className="flex items-center gap-6">
-            {/* Desktop Nav */}
-            <ul className="hidden lg:flex justify-between items-center gap-7 text-[14px] font-bold text-[var(--text-color)]">
-              {navLinks.map((link) => (
-                <li key={link.name} className="relative group">
-                  <a href={link.href} className="hover:text-[var(--accent-color)] transition-colors tracking-wider duration-200">
-                    {link.name}
-                  </a>
-                  <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[var(--accent-color)] transition-all duration-300 group-hover:w-full"></span>
-                </li>
-              ))}
-            </ul>
-
-            {/* Theme Toggle Button */}
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-full border border-[var(--surface-border)] bg-[rgba(16,185,129,0.05)] text-[var(--accent-color)] hover:bg-[rgba(16,185,129,0.15)] hover:border-[rgba(16,185,129,0.3)] transition-all duration-300 shadow-sm flex items-center justify-center cursor-pointer"
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? (
-                // Sun Icon for Dark Mode (click to switch to light)
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m0 13.5V21M4.22 4.22l1.56 1.56m12.44 12.44 1.56 1.56M1.5 12h2.25m13.5 0H21M4.22 19.78l1.56-1.56m12.44-12.44 1.56-1.56M12 5.25a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5z" />
-                </svg>
-              ) : (
-                // Moon Icon for Light Mode (click to switch to dark)
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998z" />
-                </svg>
-              )}
-            </button>
-
-            {/* Hamburger for mobile & tablet */}
-            <button
-              type="button"
-              aria-label="Open menu"
-              onClick={() => setIsOpen((v) => !v)}
-              className="lg:hidden p-2 text-[var(--text-color)] hover:text-[var(--accent-color)] focus:outline-none transition-all duration-300 cursor-pointer"
-            >
-              <div className="relative w-7 h-6 flex flex-col justify-between">
-                <span className={`w-7 h-[2.5px] bg-current rounded-full transition-all duration-350 ${
-                  isOpen ? 'rotate-45 translate-y-[10.5px] bg-[var(--accent-color)]' : ''
-                }`}></span>
-                <span className={`w-7 h-[2.5px] bg-current rounded-full transition-all duration-350 ${
-                  isOpen ? 'opacity-0 scale-0' : ''
-                }`}></span>
-                <span className={`w-7 h-[2.5px] bg-current rounded-full transition-all duration-350 ${
-                  isOpen ? '-rotate-45 -translate-y-[10.5px] bg-[var(--accent-color)]' : ''
-                }`}></span>
-              </div>
-            </button>
-          </div>
         </div>
-      </div>
 
-      {/* Mobile Overlay */}
+        {/* IDE Tabs Nav Bar with Fade Edge Gradient Hint */}
+        <div className="container mx-auto px-2 sm:px-4 flex items-center justify-between relative">
+          <div className="flex-1 overflow-x-auto no-scrollbar scroll-smooth flex items-center pr-8 nav-tab-container">
+            <div className="flex items-center">
+              {tabs.map((tab) => {
+                const Icon = tab.icon
+                const isActive = activeSection === tab.name
+                return (
+                  <a
+                    key={tab.name}
+                    href={tab.href}
+                    onClick={() => setActiveSection(tab.name)}
+                    className={`flex items-center gap-2 px-3 sm:px-4 min-h-[44px] font-mono text-[12px] sm:text-xs border-r border-white/5 transition-all duration-200 whitespace-nowrap border-t-2 ${
+                      isActive
+                        ? 'bg-[#0b0f19] text-white border-t-emerald-400 font-semibold shadow-inner'
+                        : 'text-slate-400 hover:text-slate-200 hover:bg-white/5 border-t-transparent'
+                    }`}
+                  >
+                    <Icon size={14} className={isActive ? tab.color : 'text-slate-500'} />
+                    <span>{tab.name}</span>
+                    {isActive && <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 ml-1"></span>}
+                  </a>
+                )
+              })}
+            </div>
+          </div>
+
+          {/* Mobile Drawer Button (Minimum 44x44px Tap Target) */}
+          <button
+            type="button"
+            aria-label="Toggle menu"
+            onClick={() => setIsOpen(!isOpen)}
+            className="lg:hidden p-3 min-h-[44px] min-w-[44px] text-slate-300 hover:text-emerald-400 focus:outline-none transition-colors flex items-center justify-center shrink-0 border-l border-white/5 bg-[#0b0f19]"
+          >
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
+      </header>
+
+      {/* Mobile Drawer */}
       <div
-        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-[199] lg:hidden transition-all duration-300 ${
+        className={`fixed inset-0 bg-black/80 backdrop-blur-md z-[199] lg:hidden transition-all duration-300 ${
           isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
         onClick={closeMenu}
       />
 
-      {/* Mobile Sidebar */}
       <aside
-        id="mobile-sidebar"
-        className={`fixed top-0 right-0 h-full w-68 bg-[var(--bg-color)] shadow-2xl z-[200] transform transition-transform duration-300 ease-out lg:hidden border-l border-[var(--surface-border)] ${
+        className={`fixed top-0 right-0 h-full w-72 bg-[#090d16] border-l border-emerald-500/20 shadow-2xl z-[200] transform transition-transform duration-300 ease-out lg:hidden ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="p-6 flex items-center justify-between border-b border-[var(--surface-border)] bg-[rgba(16,185,129,0.02)]">
-          <span className="text-lg font-bold gradient-text-green tracking-widest">MENU</span>
-          <button
-            type="button"
-            onClick={closeMenu}
-            className="p-2 text-[var(--text-color)] hover:text-[var(--accent-color)] transition-colors cursor-pointer"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5" className="w-5 h-5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
+        <div className="p-4 flex items-center justify-between border-b border-white/10 bg-[#0b0f19] min-h-[56px]">
+          <div className="flex items-center gap-2 font-mono text-emerald-400 font-bold text-sm">
+            <TerminalIcon size={16} />
+            <span>NAVIGATION.SH</span>
+          </div>
+          <button onClick={closeMenu} className="p-2 text-slate-400 hover:text-white min-h-[44px] min-w-[44px] flex items-center justify-center">
+            <X size={20} />
           </button>
         </div>
 
-        <nav className="p-6">
-          <ul className="flex flex-col gap-4">
-            {navLinks.map((link, index) => (
-              <li 
-                key={link.name} 
-                className={`transform transition-all duration-300 ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'}`} 
-                style={{ transitionDelay: `${index * 40}ms` }}
-              >
-                <a 
-                  href={link.href} 
-                  onClick={closeMenu} 
-                  className="block py-2 text-[16px] font-semibold text-[var(--text-color)] hover:text-[var(--accent-color)] border-b border-dashed border-[var(--surface-border)]/20 transition-all duration-200"
+        <nav className="p-4 font-mono text-sm">
+          <div className="text-[11px] text-slate-500 uppercase px-3 py-2">Workspace Files</div>
+          <div className="space-y-1">
+            {tabs.map((tab) => {
+              const Icon = tab.icon
+              return (
+                <a
+                  key={tab.name}
+                  href={tab.href}
+                  onClick={closeMenu}
+                  className="flex items-center gap-3 px-3 py-3 rounded-lg text-slate-300 hover:text-emerald-400 hover:bg-emerald-500/10 border border-transparent hover:border-emerald-500/20 transition-all min-h-[44px]"
                 >
-                  {link.name}
+                  <Icon size={16} className={tab.color} />
+                  <div>
+                    <div className="font-semibold text-xs">{tab.name}</div>
+                    <div className="text-[10px] text-slate-500">{tab.label}</div>
+                  </div>
                 </a>
-              </li>
-            ))}
-          </ul>
+              )
+            })}
+          </div>
+
+          <div className="mt-8 pt-4 border-t border-white/10">
+            <a
+              href="/resume/Vasanth - Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-3 px-4 rounded bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 border border-emerald-500/40 text-center font-mono text-xs transition-all flex items-center justify-center gap-2 font-semibold min-h-[44px]"
+            >
+              <FileText size={14} />
+              <span>DOWNLOAD RESUME PDF</span>
+            </a>
+          </div>
         </nav>
       </aside>
     </>
-  );
+  )
 }

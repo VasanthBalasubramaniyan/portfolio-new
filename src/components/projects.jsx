@@ -1,202 +1,81 @@
-import { useState, useEffect } from 'react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
-
-// Dynamic background Spark job log simulator for Data Engineer flavor
-const SparkTerminalLog = () => {
-  const [logs, setLogs] = useState([]);
-  const [index, setIndex] = useState(0);
-
-  const logSequence = [
-    "[INFO] SparkSession initialized on AWS EMR / Databricks cluster.",
-    "[INGEST] Kinesis & AWS Lambda CDC listener active for transactional stream.",
-    "[RAW] Ingesting raw JSON/Avro to Amazon S3 Bronze Lakehouse Layer.",
-    "[DELTA] Writing Delta Lake Bronze table: MERGE INTO staging_bronze.",
-    "[SPARK] Executing PySpark Catalyst Optimizer: Partition pruning enabled.",
-    "[DBT] Running dbt models: incremental silver_clean & gold_aggregated.",
-    "[QUALITY] Great Expectations validation check: Schema drift 0%, Nulls <0.01%.",
-    "[REDSHIFT] COPY command executed: Loading Gold tables into Amazon Redshift.",
-    "[SUCCESS] Airflow DAG 'banking_daily_etl' completed (Duration: 14m 20s).",
-  ];
-
-  useEffect(() => {
-    // Prime initial log
-    if (logs.length === 0) {
-      setLogs([logSequence[0]]);
-      setIndex(1);
-      return;
-    }
-
-    const interval = setInterval(() => {
-      setLogs((prev) => {
-        const next = [...prev, logSequence[index]];
-        if (next.length > 4) {
-          next.shift(); // keep it compact
-        }
-        return next;
-      });
-      setIndex((prevIndex) => (prevIndex + 1) % logSequence.length);
-    }, 2800);
-
-    return () => clearInterval(interval);
-  }, [index, logs]);
-
-  return (
-    <div className="mock-terminal mt-5 p-4 text-[12.5px] font-mono bg-[#0d1117]/95 border border-[rgba(16,185,129,0.2)] rounded-xl shadow-md">
-      <div className="mock-terminal-header border-b border-white/5 pb-2 mb-3">
-        <div className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#ef4444]"></span>
-          <span className="w-2.5 h-2.5 rounded-full bg-[#f59e0b]"></span>
-          <span className="w-2.5 h-2.5 rounded-full bg-[#10b981]"></span>
-          <span className="text-[11px] text-gray-500 ml-2 font-semibold">etl_daemon.sh</span>
-        </div>
-      </div>
-      <div className="space-y-1.5 min-h-[96px] flex flex-col justify-end">
-        {logs.map((log, idx) => (
-          <div key={idx} className="flex gap-2 leading-tight">
-            <span className="text-[#34d399] font-bold">~</span>
-            <span className={idx === logs.length - 1 ? "text-[#ffffff] font-semibold" : "text-emerald-400/70"}>
-              {log}
-            </span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
+import { Database, Sparkles } from 'lucide-react'
 
 export default function Projects() {
-  const [headerRef, isHeaderVisible] = useScrollAnimation(0.2);
-  const [cardsRef, isCardsVisible] = useScrollAnimation(0.15);
-
-  const projects = [
-    {
-      title: "Banking Transaction Data Platform",
-      status: "⚡ Production Platform",
-      tags: ["PySpark", "AWS Glue", "Amazon S3", "Databricks", "Delta Lake", "Apache Airflow", "dbt", "Amazon Redshift", "Power BI", "SQL"],
-      description: "A scalable banking data platform designed to ingest, transform, validate, and serve high-volume transaction data (500GB–1TB daily) for enterprise analytics and executive reporting.",
-      features: [
-        "Serverless & distributed ETL/ELT pipelines built with PySpark, AWS Glue, and Databricks",
-        "Medallion Architecture (Bronze, Silver, Gold) on S3 with Delta Lake ACID transactions",
-        "dbt transformations for incremental loading, schema validation & data quality enforcement",
-        "Optimized Amazon Redshift dimensional star-schema warehouse backing Power BI dashboards"
-      ],
-      githubLink: "https://github.com/VasanthBalasubramaniyan/",
-      demoLink: null,
-      hasTerminal: true
-    },
-    {
-      title: "Healthcare Claims Pipeline Modernization",
-      status: "⚡ Cloud Lakehouse",
-      tags: ["PySpark", "Databricks", "AWS Glue", "Amazon S3", "Delta Lake", "Apache Airflow", "Amazon Kinesis", "CDC", "dbt"],
-      description: "A modern data engineering pipeline focused on transforming large-scale healthcare claims workloads into reliable, analytics-ready datasets using distributed processing, cloud services, and Lakehouse architecture.",
-      features: [
-        "Near real-time streaming ingestion via Amazon Kinesis and Change Data Capture (CDC)",
-        "30% batch latency reduction via Spark Catalyst optimization and Parquet partition pruning",
-        "Apache Airflow orchestration with DAG task dependencies, automated retries & SLA monitoring",
-        "Automated CloudWatch monitoring and schema enforcement reducing reporting errors by 40%"
-      ],
-      githubLink: "https://github.com/VasanthBalasubramaniyan/",
-      demoLink: null,
-      hasTerminal: false
-    }
-  ];
-
   return (
-    <div id="projects" className="py-28 px-4 bg-dots-pattern bg-[var(--bg-color)] relative overflow-hidden transition-colors duration-350 border-b border-[var(--surface-border)]">
-      
-      {/* Decorative background orbs for projects */}
-      <div className="absolute top-[20%] left-[5%] w-72 h-72 bg-[rgba(16,185,129,0.03)] rounded-full blur-[110px] pointer-events-none"></div>
-      <div className="absolute bottom-[20%] right-[5%] w-80 h-80 bg-[rgba(16,185,129,0.04)] rounded-full blur-[130px] pointer-events-none"></div>
-
-      <div className="container relative z-10">
+    <section id="projects" className="py-12 sm:py-20 px-3 sm:px-4 bg-[#06090e] bg-grid-pattern relative border-b border-emerald-500/10 scroll-mt-20">
+      <div className="container mx-auto">
         
-        <div
-          ref={headerRef}
-          className={`fade-in-up text-center mb-20 ${isHeaderVisible ? 'visible' : ''}`}
-        >
-          <h1 className="text-4xl font-extrabold glowing-title-center text-[var(--text-color)]">
-            Featured Projects
-          </h1>
+        {/* Section Header */}
+        <div className="mb-8 sm:mb-12 font-mono">
+          <div className="text-xs text-emerald-400 font-semibold uppercase tracking-widest mb-2 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-amber-400"></span>
+            <span>~/lakehouse_dag.sql</span>
+          </div>
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight glowing-title">
+            Flagship Project & Architecture
+          </h2>
+          <p className="mt-3 text-slate-400 max-w-2xl font-sans text-xs sm:text-sm leading-relaxed">
+            End-to-end Healthcare Claims Medallion Lakehouse built with PySpark, Delta Lake, Airflow, dbt, and Great Expectations on AWS.
+          </p>
         </div>
 
-        <div
-          ref={cardsRef}
-          className={`grid grid-cols-1 lg:grid-cols-2 gap-10 ${isCardsVisible ? 'visible' : ''}`}
-        >
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className={`glass-card rounded-2xl flex flex-col p-8 fade-in-up delay-${(index * 100) + 100} ${
-                isCardsVisible ? 'visible' : ''
-              }`}
-            >
-              <div className="flex justify-between items-start mb-4">
-                <h2 className="text-2xl font-extrabold text-[var(--text-color)] pr-4 leading-snug">
-                  {project.title}
-                </h2>
-                <span className="px-3 py-1 rounded-full text-xs font-bold tracking-wide border bg-[var(--accent-bg-soft)] border-[rgba(16,185,129,0.25)] text-[var(--accent-text)] whitespace-nowrap shadow-sm">
-                  {project.status}
-                </span>
+        {/* Flagship Project Spotlight Card */}
+        <div className="ide-card bg-[#090d16] border border-emerald-500/20 p-4 sm:p-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
+            
+            <div className="lg:col-span-8 space-y-3 sm:space-y-4 font-sans">
+              <div className="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-full font-mono text-[11px] sm:text-xs border border-emerald-500/30 font-bold">
+                <Sparkles size={12} />
+                <span>FLAGSHIP PORTFOLIO BUILD</span>
               </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white">Healthcare Claims Medallion Lakehouse</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                An end-to-end production-grade Medallion lakehouse built from synthetic healthcare datasets encompassing patients, providers, appointments, diagnoses, treatments, and billing claims. Designed to demonstrate enterprise scale, stream/batch unification, schema enforcement, SCD Type 2 tracking, and automated data quality checks.
+              </p>
+              
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 font-mono text-xs pt-2">
+                <div className="bg-[#0b0f19] p-2.5 sm:p-3 rounded border border-white/5">
+                  <div className="text-slate-500 text-[10px]">INGESTION</div>
+                  <div className="text-white font-bold text-xs mt-0.5">Kinesis + CDC</div>
+                </div>
+                <div className="bg-[#0b0f19] p-2.5 sm:p-3 rounded border border-white/5">
+                  <div className="text-slate-500 text-[10px]">STORAGE</div>
+                  <div className="text-white font-bold text-xs mt-0.5">Delta Lake / S3</div>
+                </div>
+                <div className="bg-[#0b0f19] p-2.5 sm:p-3 rounded border border-white/5">
+                  <div className="text-slate-500 text-[10px]">TRANSFORM</div>
+                  <div className="text-white font-bold text-xs mt-0.5">PySpark + dbt</div>
+                </div>
+                <div className="bg-[#0b0f19] p-2.5 sm:p-3 rounded border border-white/5">
+                  <div className="text-slate-500 text-[10px]">SERVING</div>
+                  <div className="text-white font-bold text-xs mt-0.5">Redshift / Athena</div>
+                </div>
+              </div>
+            </div>
 
-              <div className="flex flex-wrap gap-2 mb-6">
-                {project.tags.map(tag => (
-                  <span key={tag} className="badge-neon px-3 py-1 rounded-lg text-xs tracking-wider">
-                    {tag}
+            <div className="lg:col-span-4 bg-[#0b0f19] p-4 sm:p-5 rounded-xl border border-white/10 space-y-3 font-mono text-xs">
+              <div className="text-emerald-400 font-bold text-[11px] sm:text-xs uppercase tracking-wider flex items-center justify-between">
+                <span>FULL TECH STACK</span>
+                <Database size={14} />
+              </div>
+              <div className="flex flex-wrap gap-1.5 pt-1">
+                {[
+                  'AWS S3', 'AWS Glue', 'AWS EMR', 'PySpark', 'Delta Lake',
+                  'Kinesis', 'CDC', 'AWS Lambda', 'Step Functions', 'Apache Airflow',
+                  'dbt Core', 'Great Expectations', 'Snowflake', 'Amazon Redshift',
+                  'Terraform', 'Docker'
+                ].map((st) => (
+                  <span key={st} className="badge-tech text-[11px]">
+                    {st}
                   </span>
                 ))}
               </div>
-
-              <p className="text-[15.5px] text-[var(--text-secondary)] leading-relaxed mb-6">
-                {project.description}
-              </p>
-
-              <div className="mb-6 flex-grow">
-                <h4 className="text-[var(--accent-color)] font-bold mb-3 uppercase tracking-wider text-xs font-mono">Key Features:</h4>
-                <ul className="space-y-2">
-                  {project.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 text-[var(--text-secondary)]">
-                      <span className="text-[var(--accent-color)] mt-0.5 font-bold">▹</span>
-                      <span className="text-[14.5px]">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Spark log terminal insertion if the project has it */}
-              {project.hasTerminal && <SparkTerminalLog />}
-
-              <div className="flex flex-wrap gap-4 mt-8 border-t border-[var(--surface-border)] pt-6">
-                <a 
-                  href={project.githubLink} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="btn-glowing-green px-6 py-2.5 rounded-lg font-bold text-sm tracking-wide flex items-center gap-2 shadow-sm cursor-pointer"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                  </svg>
-                  View on GitHub
-                </a>
-
-                {project.demoLink && (
-                  <a 
-                    href={project.demoLink} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="btn-outline-green px-6 py-2.5 rounded-lg font-bold text-sm tracking-wide flex items-center gap-2 cursor-pointer"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-                    </svg>
-                    Live Demo
-                  </a>
-                )}
-              </div>
             </div>
-          ))}
+
+          </div>
         </div>
+
       </div>
-    </div>
-  );
+    </section>
+  )
 }
