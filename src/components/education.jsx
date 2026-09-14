@@ -23,7 +23,7 @@ export default function Education() {
       degree: 'HSC',
       institution: 'SDA Matric Hr Sec School',
       period: '2019',
-      location: 'Coimbatore, India',
+      location: 'Madurai, India',
       icon: Award,
       subjects: [
         'Mathematics & Calculus',
@@ -37,7 +37,7 @@ export default function Education() {
       degree: 'SSLC',
       institution: 'SDA Matric Hr Sec School',
       period: '2017',
-      location: 'Coimbatore, India',
+      location: 'Madurai, India',
       icon: BookOpen,
       subjects: [
         'Mathematics',
