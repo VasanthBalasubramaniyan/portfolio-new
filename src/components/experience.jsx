@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Calendar, MapPin, CheckCircle2, ChevronDown, ChevronRight } from 'lucide-react'
+import { Calendar, CheckCircle2, ChevronDown, ChevronRight } from 'lucide-react'
 
 export default function Experience() {
   const [expandedId, setExpandedId] = useState(0)
@@ -10,63 +10,65 @@ export default function Experience() {
       role: 'Data Engineer',
       company: 'Globe Infotech Pvt. Ltd.',
       period: 'Oct 2025 – Present',
-      location: 'Chennai, India',
-      domain: 'Banking & Healthcare Data',
+      project: 'Banking Transaction Data Platform & Healthcare Claims Pipeline Modernization',
       impactMetrics: [
-        { label: 'Pipeline Volume', val: '500GB–1TB / day' },
+        { label: 'Daily Data Volume', val: '500GB–1TB' },
         { label: 'Batch Latency Cut', val: '30%' },
-        { label: 'Reporting Error Cut', val: '40%' },
-        { label: 'CI/CD Release Speed', val: '15 Mins' }
+        { label: 'Release Time Cut', val: 'Days ➔ 15m' }
       ],
       points: [
-        'Built production ETL/ELT pipelines processing 500GB–1TB/day using PySpark, AWS Glue, and Databricks across banking and healthcare domains.',
-        'Architected near real-time ingestion via AWS Kinesis + CDC; cut batch processing latency by 30% through PySpark Catalyst optimizer tuning and strategic partition pruning.',
-        'Constructed governed Bronze/Silver/Gold Medallion lakehouse architecture on Delta Lake + S3, serving Gold analytical tables via AWS Athena at sub-minute data freshness.',
-        'Orchestrated Apache Airflow DAGs with AWS Lambda and Step Functions triggers to ensure peak-load execution reliability.',
-        'Wrote incremental dbt models and integrated Amazon CloudWatch automated monitoring, cutting downstream reporting errors by 40%.',
-        'Established automated CI/CD deployment workflows with GitHub Actions and Docker, reducing release cycle time from days to 15 minutes.'
+        'Designed and developed scalable ETL/ELT pipelines for banking and healthcare domains, processing 500GB–1TB of data daily using PySpark, AWS Glue, and Databricks.',
+        'Implemented near real-time data ingestion using Amazon Kinesis and Change Data Capture (CDC), reducing batch processing latency by 30%.',
+        'Built Medallion Architecture (Bronze, Silver, Gold) using Databricks and Delta Lake on Amazon S3.',
+        'Orchestrated complex workflows using Apache Airflow with task dependencies, retries, and SLA monitoring, integrating AWS Lambda and AWS Step Functions.',
+        'Developed reusable dbt transformations with incremental loads and implemented automated data validation and monitoring using Amazon CloudWatch.',
+        'Established CI/CD pipelines using GitHub Actions and Docker, reducing release time from days to 15 minutes.'
       ],
-      tech: ['PySpark', 'AWS Glue', 'Databricks', 'Delta Lake', 'Kinesis', 'CDC', 'Airflow', 'dbt', 'Athena', 'GitHub Actions', 'Docker']
+      tech: ['PySpark', 'AWS Glue', 'Databricks', 'Amazon Kinesis', 'CDC', 'Delta Lake', 'Amazon S3', 'Apache Airflow', 'AWS Lambda', 'AWS Step Functions', 'dbt', 'Amazon CloudWatch', 'GitHub Actions', 'Docker']
     },
     {
       id: 1,
       role: 'Associate Data Engineer',
       company: 'Troika Research Technologies',
       period: 'Jan 2024 – Sep 2025',
-      location: 'Chennai, India',
-      domain: 'Banking & Financial Datasets',
+      project: 'Customer Transaction Data Processing System',
+      domain: 'Banking / Financial Services',
       impactMetrics: [
-        { label: 'S3 Storage Cost Cut', val: '35%' },
-        { label: 'BI Latency Cut', val: '45s ➔ 8s' },
-        { label: 'Reconciliation Accuracy', val: '+25%' }
+        { label: 'Reconciliation Accuracy', val: '+25%' },
+        { label: 'BI Query Latency', val: '45s ➔ 8s' }
       ],
       points: [
-        'Built serverless ETL pipelines for daily banking transactions using PySpark, AWS Glue, and Pandas, ingesting from PostgreSQL, MySQL, SQL Server, and REST APIs.',
-        'Scheduled resilient Apache Airflow DAGs complete with automated retry mechanisms and failure alert hooks.',
-        'Constructed Raw/Processed/Curated data lake architecture on S3 using Delta Lake + S3 Intelligent-Tiering, cutting cloud storage expenditure by 35%.',
-        'Wrote complex SQL transformations (CTEs, window functions, stored procedures) and dbt data quality tests, boosting financial reconciliation accuracy by 25%.',
-        'Tuned Amazon Redshift cluster performance via distribution/sort key optimization and WLM workload queue management, cutting BI query latency from 45s down to 8s.'
+        'Developed serverless ETL pipelines for daily banking transactions using PySpark, AWS Glue, and Pandas.',
+        'Ingested data from PostgreSQL, MySQL, Microsoft SQL Server, and REST APIs using AWS Lambda and AWS Step Functions.',
+        'Developed and scheduled Apache Airflow DAGs for automated batch ETL workflows with retry mechanisms, dependency management, and failure alerting.',
+        'Built Raw, Processed, and Curated data lake zones on Amazon S3 using Delta Lake.',
+        'Authored SQL transformations using CTEs, Window Functions, and Stored Procedures.',
+        'Implemented dbt data quality checks and schema drift detection, improving financial reconciliation accuracy by 25%.',
+        'Optimized Amazon Redshift performance using distribution keys, sort keys, and WLM configuration, reducing average BI query latency from 45 seconds to 8 seconds.',
+        'Supported Power BI reporting through optimized dimensional models and DAX measures.'
       ],
-      tech: ['PySpark', 'AWS Glue', 'S3', 'Delta Lake', 'Redshift', 'Airflow', 'dbt', 'PostgreSQL', 'MySQL', 'SQL Server']
+      tech: ['PySpark', 'AWS Glue', 'Pandas', 'PostgreSQL', 'MySQL', 'Microsoft SQL Server', 'REST APIs', 'AWS Lambda', 'AWS Step Functions', 'Apache Airflow', 'Amazon S3', 'Delta Lake', 'SQL', 'dbt', 'Amazon Redshift', 'Power BI', 'DAX']
     },
     {
       id: 2,
-      role: 'Data Engineer Intern',
-      company: 'Knitech Soft Solution',
-      period: 'Apr 2023 – Jan 2024',
-      location: 'Chennai, India',
-      domain: 'Marketing Analytics & Reporting',
+      role: 'Junior Data Engineer',
+      company: 'Knitech Soft Solutions',
+      period: 'Sep 2022 – Dec 2023',
+      project: 'Marketing Data ETL & Analytics Pipeline',
       impactMetrics: [
-        { label: 'Multi-Source Ingest', val: '5+ Channels' },
-        { label: 'BI Reporting', val: 'Power BI Dashboards' }
+        { label: 'Data Warehouse', val: 'Amazon Redshift' },
+        { label: 'Analytics & BI', val: 'Power BI' }
       ],
       points: [
-        'Built automated ETL scripts to clean and transform multi-source marketing campaign data using Python, Pandas, and NumPy.',
-        'Wrote analytical SQL queries using GROUP BY aggregations, CTEs, and window functions to evaluate campaign conversion performance.',
-        'Loaded curated datasets into Amazon Redshift data warehouse to empower cross-functional marketing analytics.',
-        'Designed and published interactive Power BI dashboards tracking key marketing campaign response and performance metrics.'
+        'Developed ETL workflows to extract, clean, and transform customer marketing campaign data from multiple structured sources into analytics-ready datasets.',
+        'Applied Python preprocessing using Pandas and NumPy to resolve missing values and duplicate records.',
+        'Wrote SQL queries using GROUP BY, CTEs, subqueries, and window functions to analyze campaign performance and customer behavior trends.',
+        'Loaded transformed datasets into Amazon Redshift, contributing to a centralized warehouse used for reporting and analytics across teams.',
+        'Performed schema validation and consistency checks to strengthen data reliability for downstream marketing analytics use cases.',
+        'Prepared analytics-ready datasets that supported a customer response prediction model for targeted marketing analysis.',
+        'Built Power BI dashboard components to visualize campaign performance and customer response metrics.'
       ],
-      tech: ['Python', 'Pandas', 'NumPy', 'SQL', 'Redshift', 'Power BI', 'DAX']
+      tech: ['Python', 'Pandas', 'NumPy', 'SQL', 'Amazon Redshift', 'Power BI']
     }
   ]
 
@@ -104,10 +106,10 @@ export default function Experience() {
                   onClick={() => setExpandedId(isExpanded ? null : exp.id)}
                   className="ide-header bg-[#0b0f19] p-4 sm:p-5 flex flex-col md:flex-row md:items-center justify-between cursor-pointer gap-3 min-h-[56px] select-none"
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-start sm:items-center gap-3">
                     <button 
                       aria-label="Toggle details"
-                      className="p-2 rounded bg-white/5 text-emerald-400 hover:bg-emerald-500/20 shrink-0 min-h-[44px] min-w-[44px] flex items-center justify-center"
+                      className="p-2 rounded bg-white/5 text-emerald-400 hover:bg-emerald-500/20 shrink-0 min-h-[44px] min-w-[44px] flex items-center justify-center mt-0.5 sm:mt-0"
                     >
                       {isExpanded ? <ChevronDown size={20} /> : <ChevronRight size={20} />}
                     </button>
@@ -123,23 +125,31 @@ export default function Experience() {
                           <Calendar size={12} className="text-cyan-400 shrink-0" />
                           {exp.period}
                         </span>
-                        <span className="flex items-center gap-1">
-                          <MapPin size={12} className="text-purple-400 shrink-0" />
-                          {exp.location}
-                        </span>
-                        <span className="hidden sm:inline text-slate-500">• {exp.domain}</span>
+                        {exp.domain && (
+                          <span className="text-slate-400">
+                            <span className="text-slate-500">• Domain:</span> {exp.domain}
+                          </span>
+                        )}
                       </div>
+                      {exp.project && (
+                        <div className="text-[11px] sm:text-xs font-mono text-slate-300 mt-1.5 flex flex-wrap items-baseline gap-1.5">
+                          <span className="text-emerald-400 font-semibold">Project:</span>
+                          <span className="text-slate-200">{exp.project}</span>
+                        </div>
+                      )}
                     </div>
                   </div>
 
                   {/* Impact Summary Badges */}
-                  <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-1 md:pt-0">
-                    {exp.impactMetrics.slice(0, 2).map((m, idx) => (
-                      <span key={idx} className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2.5 py-1 rounded text-[11px] sm:text-xs font-mono font-bold">
-                        {m.label}: {m.val}
-                      </span>
-                    ))}
-                  </div>
+                  {exp.impactMetrics && exp.impactMetrics.length > 0 && (
+                    <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-1 md:pt-0 self-start md:self-center">
+                      {exp.impactMetrics.slice(0, 2).map((m, idx) => (
+                        <span key={idx} className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2.5 py-1 rounded text-[11px] sm:text-xs font-mono font-bold">
+                          {m.label}: {m.val}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
                 {/* Expanded Content Body */}
@@ -147,14 +157,16 @@ export default function Experience() {
                   <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 font-sans border-t border-white/5 bg-[#080c14]">
                     
                     {/* Key Impact Stats Bar */}
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 font-mono text-xs">
-                      {exp.impactMetrics.map((metric, idx) => (
-                        <div key={idx} className="bg-[#0b0f19] p-2.5 sm:p-3 rounded-lg border border-white/5">
-                          <div className="text-[10px] text-slate-500 uppercase truncate">{metric.label}</div>
-                          <div className="text-emerald-400 font-bold text-xs sm:text-sm mt-0.5">{metric.val}</div>
-                        </div>
-                      ))}
-                    </div>
+                    {exp.impactMetrics && exp.impactMetrics.length > 0 && (
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5 sm:gap-3 font-mono text-xs">
+                        {exp.impactMetrics.map((metric, idx) => (
+                          <div key={idx} className="bg-[#0b0f19] p-2.5 sm:p-3 rounded-lg border border-white/5">
+                            <div className="text-[10px] text-slate-500 uppercase truncate">{metric.label}</div>
+                            <div className="text-emerald-400 font-bold text-xs sm:text-sm mt-0.5">{metric.val}</div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
 
                     {/* Bullet Points List */}
                     <div className="space-y-2.5">
