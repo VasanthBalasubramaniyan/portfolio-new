@@ -13,7 +13,7 @@ export const experiences = [
     id: 0,
     role: "Data Engineer",
     company: "Globe Infotech Pvt. Ltd.",
-    period: "Joined Oct 2025 · Former role",
+    period: "Oct 2025 – Oct 2026",
     project:
       "Banking Transaction Data Platform & Healthcare Claims Pipeline Modernization",
     impactMetrics: [
