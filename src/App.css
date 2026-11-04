@@ -1,0 +1,299 @@
+:root {
+  /* Dark Technical / IDE Color Palette */
+  --bg-color: #06090e;
+  --bg-card: #0b0f19;
+  --bg-card-alt: #111827;
+  --bg-editor-header: #0d1322;
+  --bg-terminal: #090d16;
+  
+  --text-main: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-code: #e2e8f0;
+
+  /* Data Engineer Syntax Colors */
+  --accent-green: #10b981;
+  --accent-green-bright: #34d399;
+  --accent-green-glow: rgba(16, 185, 129, 0.25);
+  
+  --accent-cyan: #06b6d4;
+  --accent-cyan-bright: #38bdf8;
+  --accent-cyan-glow: rgba(6, 182, 212, 0.25);
+
+  --accent-amber: #f59e0b;
+  --accent-amber-bright: #fbbf24;
+  --accent-amber-glow: rgba(245, 158, 11, 0.25);
+
+  --accent-purple: #a855f7;
+  --accent-purple-bright: #c084fc;
+  --accent-purple-glow: rgba(168, 85, 247, 0.25);
+
+  --accent-rose: #f43f5e;
+  
+  --surface-border: rgba(16, 185, 129, 0.15);
+  --surface-border-bright: rgba(16, 185, 129, 0.4);
+  --surface-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.8);
+  --surface-shadow-hover: 0 15px 45px -5px rgba(16, 185, 129, 0.18);
+
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+html, body, #root {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+section {
+  scroll-margin-top: 80px;
+}
+
+.font-mono {
+  font-family: var(--font-mono) !important;
+}
+
+/* Background Grid & Matrix Pattern */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(16, 185, 129, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(16, 185, 129, 0.04) 1px, transparent 1px);
+}
+
+.bg-dots-pattern {
+  background-image: radial-gradient(rgba(16, 185, 129, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Container Utility */
+.container {
+  width: 92%;
+  max-width: 1240px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+/* Custom Scroll Progress Bar */
+.scroll-progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: transparent;
+  z-index: 9999;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981, #06b6d4, #a855f7);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.8);
+  width: 0%;
+  transition: width 0.1s ease-out;
+}
+
+/* Custom Scrollbar & Touch Scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #06090e;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #10b981;
+}
+
+/* Horizontal Nav Tab Fade Hint */
+.nav-tab-container {
+  position: relative;
+}
+
+.nav-tab-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 32px;
+  background: linear-gradient(90deg, transparent, #06090e);
+  pointer-events: none;
+}
+
+/* Glowing Typography */
+.gradient-text-green {
+  background: linear-gradient(135deg, #34d399 0%, #10b981 60%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-cyan {
+  background: linear-gradient(135deg, #38bdf8 0%, #06b6d4 60%, #0284c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-purple {
+  background: linear-gradient(135deg, #c084fc 0%, #a855f7 60%, #7e22ce 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glowing-title {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-mono);
+  word-break: break-word;
+}
+
+.glowing-title::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-green), var(--accent-cyan));
+  box-shadow: 0 0 10px var(--accent-green);
+  border-radius: 2px;
+}
+
+/* IDE / Terminal Window Component Cards */
+.ide-card {
+  background: var(--bg-card);
+  border: 1px solid var(--surface-border);
+  box-shadow: var(--surface-shadow);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.ide-card:hover {
+  border-color: var(--surface-border-bright);
+  box-shadow: var(--surface-shadow-hover);
+}
+
+.ide-header {
+  background: var(--bg-editor-header);
+  border-bottom: 1px solid rgba(16, 185, 129, 0.12);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.ide-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ide-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.ide-dot-red { background: #ff5f56; }
+.ide-dot-yellow { background: #ffbd2e; }
+.ide-dot-green { background: #27c93f; }
+
+/* CLI Blink Cursor */
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  background-color: var(--accent-green);
+  margin-left: 4px;
+  vertical-align: middle;
+  animation: blink 1s infinite steps(2, start);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Glowing Neon Badges */
+.badge-tech {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background: rgba(16, 185, 129, 0.08);
+  color: var(--accent-green-bright);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.badge-tech:hover {
+  background: rgba(16, 185, 129, 0.16);
+  border-color: rgba(16, 185, 129, 0.5);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+}
+
+/* Tap target utility class */
+.min-tap-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Focus outline for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid var(--accent-green) !important;
+  outline-offset: 3px !important;
+}
+
+/* Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
