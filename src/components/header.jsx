@@ -46,7 +46,7 @@ export default function Header({ resumeLink = '/resume/Vasanth - Resume.pdf' }) 
       case 'cat bio.txt':
       case 'cat bio':
         response = `Vasanth B | Data Engineer (3+ Years Experience)
-Location: Chennai, India
+Location: Madurai, India
 Core Focus: Scalable ETL/ELT, Medallion Lakehouses, Batch & Near Real-time Streams.
 Domains: Banking & Healthcare
 Tech: PySpark, AWS Glue, Databricks, Delta Lake, Airflow, dbt, Redshift, Kinesis.`
@@ -71,7 +71,7 @@ Tech: PySpark, AWS Glue, Databricks, Delta Lake, Airflow, dbt, Redshift, Kinesis
         response = `📧 Email: get.vasanth.b@gmail.com
 📞 Phone: +91-9566678426
 🔗 LinkedIn: linkedin.com/in/vasanthbalasubramaniyan
-📍 Location: Chennai, India`
+📍 Location: Madurai, India`
         break
       case 'clear':
         setTerminalLogs([])
@@ -122,7 +122,7 @@ Tech: PySpark, AWS Glue, Databricks, Delta Lake, Airflow, dbt, Redshift, Kinesis
           {/* 4. Compact Meta Row */}
           <div className="font-mono text-[12px] sm:text-xs text-slate-400 flex flex-wrap items-center gap-1.5 sm:gap-2 pt-1 leading-normal">
             <span className="text-slate-300 flex items-center gap-1">
-              <MapPin size={12} className="text-cyan-400 shrink-0" /> Chennai, India
+              <MapPin size={12} className="text-cyan-400 shrink-0" /> Madurai, India
             </span>
             <span className="text-emerald-500 font-bold">·</span>
             <span className="text-slate-300">3+ Years Experience</span>

@@ -93,7 +93,7 @@ export default function App() {
       <main id="main" className="wrap">
         <section className="hero" aria-labelledby="hero-title">
           <div>
-            <p className="eyebrow">Data engineer · Chennai, India</p>
+            <p className="eyebrow">Data engineer · Madurai, India</p>
             <h1 id="hero-title">
               Reliable data.
               <br />
@@ -370,7 +370,7 @@ export default function App() {
               Practical engineering.
             </h2>
             <p>
-              I’m a Data Engineer based in Chennai with 4+ years of experience
+              I’m a Data Engineer based in Madurai with 4+ years of experience
               across banking and healthcare data platforms. My work spans
               scalable ETL/ELT pipelines, lakehouse architecture, dimensional
               modelling, and data quality.
@@ -381,7 +381,7 @@ export default function App() {
               applications and decisions.
             </p>
             <span className="location">
-              <MapPin size={16} /> Chennai, India
+              <MapPin size={16} /> Madurai, India
             </span>
           </div>
           <div id="education">

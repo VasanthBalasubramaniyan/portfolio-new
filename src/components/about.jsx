@@ -90,7 +90,7 @@ export default function About() {
             
             <div className="inline-flex items-center gap-3 bg-[var(--accent-bg-soft)] text-[var(--accent-text)] px-5 py-2.5 rounded-2xl shadow-sm border border-[rgba(16,185,129,0.2)] self-start font-bold text-[14px]">
               <span className="text-lg">📍</span>
-              <span>Chennai, India | Open to Remote & Relocation</span>
+              <span>Madurai, India | Open to Remote & Relocation</span>
             </div>
           </div>
 

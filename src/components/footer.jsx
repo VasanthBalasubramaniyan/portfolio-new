@@ -42,7 +42,7 @@ export default function Footer() {
                 Ready to optimize your ETL pipelines or build a Medallion Lakehouse?
               </h3>
               <p className="text-slate-300 font-sans text-xs sm:text-sm leading-relaxed">
-                I am actively seeking Data Engineering opportunities (Remote or Relocation from Chennai, India). Let's connect on pipeline architecture, Spark optimization, or cloud data platforms.
+                I am actively seeking Data Engineering opportunities (Remote or Relocation from Madurai, India). Let's connect on pipeline architecture, Spark optimization, or cloud data platforms.
               </p>
             </div>
 
