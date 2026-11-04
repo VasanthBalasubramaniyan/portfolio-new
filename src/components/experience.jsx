@@ -96,7 +96,7 @@ export default function Experience() {
             Professional Experience Timeline
           </h2>
           <p className="mt-3 text-slate-400 max-w-2xl font-sans text-xs sm:text-sm leading-relaxed">
-            3+ years engineering enterprise data pipelines, lakehouse architectures, and cloud data warehouses.
+            4+ years engineering enterprise data pipelines, lakehouse architectures, and cloud data warehouses.
           </p>
         </div>
 
